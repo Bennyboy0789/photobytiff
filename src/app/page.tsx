@@ -1,20 +1,11 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/ScrollReveal';
 import PageTransition from '@/components/PageTransition';
-
-const heroImages = [
-  '/images/hero/hero-1.jpg',
-  '/images/hero/hero-2.jpg',
-  '/images/hero/hero-3.jpg',
-  '/images/hero/hero-4.jpg',
-  '/images/hero/hero-5.jpg',
-  '/images/hero/hero-6.jpg',
-];
 
 const services = [
   { name: 'Maternity', image: '/images/services/maternity.jpg', href: '/portfolio' },
@@ -25,213 +16,230 @@ const services = [
   { name: 'Patriotic', image: '/images/services/patriotic.jpg', href: '/portfolio' },
 ];
 
+const featuredWork = [
+  { image: '/images/hero/hero-3.jpg', caption: 'Family Session', date: 'Spring 2024' },
+  { image: '/images/testimonials/ameria.jpg', caption: 'Cake Smash', date: 'Winter 2024' },
+  { image: '/images/hero/hero-5.jpg', caption: 'Maternity', date: 'Summer 2024' },
+  { image: '/images/testimonials/amanda.jpg', caption: 'Children', date: 'Fall 2023' },
+];
+
 const testimonials = [
   {
     name: 'Ashley K.',
-    image: '/images/testimonials/ashley.jpg',
     quote:
       'She was so helpful and friendly! And my son absolutely enjoyed his time during the shoot! Will definitely book again!',
   },
   {
     name: 'Amanda S.',
-    image: '/images/testimonials/amanda.jpg',
     quote:
-      'Great experience! Had pictures taken of my 7 and 2 year old sons. Not only did she give us a great price, Tiffany was very patient with my children! She was able to coax the best pictures out of my sons and made it a fun experience for us all!',
+      'Great experience! Not only did she give us a great price, Tiffany was very patient with my children! She was able to coax the best pictures out of my sons and made it a fun experience for us all!',
   },
   {
     name: 'Marissa S.',
-    image: '/images/testimonials/marissa.jpg',
     quote:
       'She was super sweet and kind! We had a blast! 10/10 would go to her for pictures again! They turned out amazing!!!!!',
+  },
+  {
+    name: 'Ameria J.',
+    quote:
+      'Tiffany did my daughter\'s 1st Birthday pictures and they came out absolutely amazing!! Throughout the whole process Tiffany was soooo supportive and accommodating. You can tell she\'s passionate about photography through her work!',
+  },
+  {
+    name: 'Gregg K.',
+    quote:
+      'Tiffany met me at a location convenient to me. She had several suggestions for picture poses and spots. She quickly edited the photos and got them back to me. Recommended!',
   },
 ];
 
 export default function Home() {
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  const nextImage = useCallback(() => {
-    setCurrentImage((prev) => (prev + 1) % heroImages.length);
+  const nextTestimonial = useCallback(() => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(nextImage, 5000);
-    return () => clearInterval(interval);
-  }, [nextImage]);
+  const prevTestimonial = useCallback(() => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  }, []);
 
   return (
     <PageTransition>
-      {/* ============ HERO SECTION ============ */}
-      <section className="relative h-screen overflow-hidden">
-        {/* Background Images with Crossfade */}
-        {heroImages.map((src, index) => (
+      {/* ============ HERO — 2-col zero-gap editorial blocks ============ */}
+      <section className="grid grid-cols-1 md:grid-cols-2">
+        <div className="relative h-[50vh] md:h-[85vh] overflow-hidden group">
           <Image
-            key={src}
-            src={src}
-            alt={`Hero image ${index + 1}`}
+            src="/images/hero/hero-1.jpg"
+            alt="Lifestyle photography session"
             fill
-            className="object-cover"
-            priority={index === 0}
-            sizes="100vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
-        ))}
-        <AnimatePresence mode="popLayout">
-          <motion.div
-            key={currentImage}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
-          >
-            <Image
-              src={heroImages[currentImage]}
-              alt={`Hero image ${currentImage + 1}`}
-              fill
-              className="object-cover"
-              priority={currentImage === 0}
-              sizes="100vw"
-            />
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
-
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-          <motion.h1
-            className="text-hero font-serif font-bold text-white tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            TIFFANY
-          </motion.h1>
-          <motion.p
-            className="text-sm uppercase tracking-widest text-white/80 mt-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            Lifestyle Photographer · Spring Lake, NC
-          </motion.p>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </motion.div>
+        <div className="relative h-[50vh] md:h-[85vh] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-2.jpg"
+            alt="Family photography"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
       </section>
 
-      {/* ============ SERVICES GRID SECTION ============ */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <ScrollReveal>
-          <p className="uppercase tracking-widest text-sm text-brand-gray mb-2 text-center">
-            WHAT WE CAPTURE
-          </p>
-          <h2 className="text-editorial font-serif text-center mb-16">
-            Every moment tells a story
-          </h2>
-        </ScrollReveal>
+      {/* ============ SESSIONS GRID — Counter-Print style ============ */}
+      <section className="px-6 max-w-[1400px] mx-auto py-[3.75rem]">
+        <div className="flex items-baseline justify-between mb-6">
+          <h2 className="text-[20px] font-bold tracking-[-0.5px]">Sessions</h2>
+          <Link
+            href="/services"
+            className="text-[15px] text-brand-gray hover:text-brand-dark transition-colors"
+          >
+            View all
+          </Link>
+        </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
           {services.map((service, index) => (
-            <ScrollReveal key={service.name} delay={index * 0.1}>
-              <Link href={service.href} className="block aspect-square relative overflow-hidden group cursor-pointer">
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span className="uppercase tracking-widest text-white text-sm font-medium">
-                    {service.name}
-                  </span>
+            <ScrollReveal key={service.name} delay={index * 0.05}>
+              <Link href={service.href} className="block group">
+                <div className="aspect-square relative overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                  />
                 </div>
+                <p className="text-[15px] mt-2">{service.name}</p>
               </Link>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
-      {/* ============ STATEMENT SECTION ============ */}
-      <section className="py-32 px-6 bg-brand-light">
+      {/* ============ STATEMENT — Counter-Print 63px bold ============ */}
+      <section className="px-6 max-w-[1400px] mx-auto py-[3.75rem]">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-[2px] bg-brand-pink mx-auto mb-8" />
-            <p className="text-editorial font-serif italic text-brand-dark">
-              Life is a collection of moments, big and small, and my passion is
-              freezing those moments in time for you to cherish forever.
-            </p>
-            <p className="text-sm tracking-widest uppercase mt-8">— Tiffany</p>
-          </div>
+          <p className="text-statement font-bold tracking-[-0.5px]">
+            Tiffany Gilpin is a lifestyle photographer based in Spring Lake, NC — specializing in
+            maternity, newborn, family and milestone photography.
+          </p>
         </ScrollReveal>
       </section>
 
-      {/* ============ TESTIMONIALS SECTION ============ */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <ScrollReveal>
-          <p className="uppercase tracking-widest text-sm text-brand-gray mb-2 text-center">
-            KIND WORDS
-          </p>
-          <h2 className="text-editorial font-serif text-center mb-16">
-            From our wonderful clients
-          </h2>
-        </ScrollReveal>
+      {/* ============ FEATURED WORK — 4-col grid ============ */}
+      <section className="px-6 max-w-[1400px] mx-auto py-[3.75rem]">
+        <div className="flex items-baseline justify-between mb-6">
+          <h2 className="text-[20px] font-bold tracking-[-0.5px]">Featured Work</h2>
+          <Link
+            href="/portfolio"
+            className="text-[15px] text-brand-gray hover:text-brand-dark transition-colors"
+          >
+            View all
+          </Link>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <ScrollReveal key={testimonial.name} delay={index * 0.15}>
-              <div className="p-8 text-center">
-                <div className="w-16 h-16 rounded-full mx-auto mb-6 relative overflow-hidden">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {featuredWork.map((work, index) => (
+            <ScrollReveal key={work.caption} delay={index * 0.08}>
+              <Link href="/portfolio" className="block group">
+                <div className="aspect-[4/5] relative overflow-hidden">
                   <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
+                    src={work.image}
+                    alt={work.caption}
                     fill
-                    className="object-cover"
-                    sizes="64px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
-                <p className="italic text-brand-gray text-sm leading-relaxed mb-6">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <p className="font-semibold text-sm uppercase tracking-wider">
-                  {testimonial.name}
-                </p>
-              </div>
+                <p className="text-[15px] mt-2">{work.caption}</p>
+                <p className="text-[13px] text-brand-gray">{work.date}</p>
+              </Link>
             </ScrollReveal>
           ))}
         </div>
       </section>
 
-      {/* ============ CTA SECTION ============ */}
-      <section className="py-32 px-6 text-center bg-brand-dark text-white">
+      {/* ============ TESTIMONIALS — editorial single-quote ============ */}
+      <section className="px-6 max-w-[1400px] mx-auto py-[3.75rem] border-t border-gray-200">
+        <div className="flex items-baseline justify-between mb-12">
+          <h2 className="text-[20px] font-bold tracking-[-0.5px]">Kind Words</h2>
+          <p className="text-[15px] text-brand-gray">
+            {currentTestimonial + 1}/{testimonials.length}
+          </p>
+        </div>
+
+        <div className="max-w-3xl">
+          <motion.div
+            key={currentTestimonial}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <p className="text-[clamp(1.25rem,3vw,1.75rem)] font-bold leading-snug tracking-[-0.3px] mb-6">
+              &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
+            </p>
+            <p className="text-[15px] text-brand-gray">
+              — {testimonials[currentTestimonial].name}
+            </p>
+          </motion.div>
+
+          <div className="flex gap-3 mt-8">
+            <button
+              onClick={prevTestimonial}
+              className="w-10 h-10 rounded-full border border-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all duration-200"
+              aria-label="Previous testimonial"
+            >
+              ←
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="w-10 h-10 rounded-full border border-brand-dark flex items-center justify-center hover:bg-brand-dark hover:text-white transition-all duration-200"
+              aria-label="Next testimonial"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 2-col editorial blocks (more imagery) ============ */}
+      <section className="grid grid-cols-1 md:grid-cols-2">
+        <div className="relative h-[50vh] md:h-[70vh] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-4.jpg"
+            alt="Photography session"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        <div className="relative h-[50vh] md:h-[70vh] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-6.jpg"
+            alt="Photography session"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      </section>
+
+      {/* ============ CTA — minimal ============ */}
+      <section className="px-6 max-w-[1400px] mx-auto py-[5rem]">
         <ScrollReveal>
-          <h2 className="text-editorial font-serif mb-8">
-            Ready to capture your story?
+          <h2 className="text-statement font-bold tracking-[-0.5px] mb-8">
+            Ready to book?
           </h2>
           <Link
             href="/contact"
-            className="bg-brand-pink text-white rounded-full px-10 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-opacity-90 transition inline-block"
+            className="inline-flex items-center gap-2 border border-brand-dark text-brand-dark rounded-full px-8 py-3 uppercase tracking-widest text-[13px] font-medium hover:bg-brand-dark hover:text-white transition-all duration-300"
           >
-            BOOK NOW →
+            GET IN TOUCH
+            <span>→</span>
           </Link>
         </ScrollReveal>
       </section>

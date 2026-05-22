@@ -52,7 +52,7 @@ export default function ContactPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center">
-          <h1 className="text-hero font-serif text-white">CONTACT</h1>
+          <h1 className="text-hero font-bold text-white">CONTACT</h1>
           <p className="text-white/70 text-sm uppercase tracking-widest mt-4">
             Let&apos;s create something beautiful
           </p>
@@ -64,7 +64,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
           {/* LEFT SIDE — Info */}
           <ScrollReveal direction="left">
-            <h2 className="text-editorial font-serif mb-6">
+            <h2 className="text-editorial font-bold mb-6">
               Your story starts here
             </h2>
             <div className="w-16 h-[2px] bg-brand-pink mb-8" />
@@ -191,7 +191,7 @@ export default function ContactPage() {
                     <path d="m9 12 2 2 4-4" />
                   </svg>
                 </div>
-                <h3 className="text-editorial font-serif mb-4">Thank you!</h3>
+                <h3 className="text-editorial font-bold mb-4">Thank you!</h3>
                 <p className="text-brand-gray">
                   Your message has been sent. I&apos;ll be in touch within 24
                   hours to discuss your session.
@@ -360,7 +360,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="mt-10 w-full md:w-auto bg-brand-pink text-white rounded-full px-12 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-brand-dark transition-colors"
+                  className="mt-10 w-full md:w-auto bg-brand-dark text-white rounded-full px-12 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-brand-dark transition-colors"
                 >
                   Send Message
                 </button>
@@ -372,7 +372,7 @@ export default function ContactPage() {
 
       {/* Bottom CTA */}
       <section className="py-16 text-center">
-        <p className="text-lg font-serif mb-2">Follow along on Instagram</p>
+        <p className="text-lg font-bold mb-2">Follow along on Instagram</p>
         <Link
           href="https://instagram.com/photo.by.tiff"
           target="_blank"

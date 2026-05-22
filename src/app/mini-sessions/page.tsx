@@ -65,7 +65,7 @@ export default function MiniSessionsPage() {
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
-        <h1 className="relative z-10 text-hero font-serif text-white text-center">
+        <h1 className="relative z-10 text-hero font-bold text-white text-center">
           MINI SESSIONS
         </h1>
       </section>
@@ -73,7 +73,7 @@ export default function MiniSessionsPage() {
       {/* Intro Section */}
       <ScrollReveal>
         <section className="py-24 px-6 max-w-3xl mx-auto text-center">
-          <h2 className="text-editorial font-serif mb-6">
+          <h2 className="text-editorial font-bold mb-6">
             Quick, fun & affordable
           </h2>
           <p className="text-brand-gray leading-relaxed">
@@ -83,7 +83,7 @@ export default function MiniSessionsPage() {
             images delivered via an online gallery.
           </p>
           <div className="mt-8">
-            <p className="text-5xl font-serif font-bold text-brand-dark">$175</p>
+            <p className="text-5xl font-bold font-bold text-brand-dark">$175</p>
             <p className="text-sm text-brand-gray">per session</p>
           </div>
         </section>
@@ -113,7 +113,7 @@ export default function MiniSessionsPage() {
       {/* FAQ Section */}
       <ScrollReveal>
         <section className="py-24 px-6 max-w-3xl mx-auto">
-          <h2 className="text-editorial font-serif text-center mb-16">
+          <h2 className="text-editorial font-bold text-center mb-16">
             Frequently Asked Questions
           </h2>
           <div>
@@ -154,7 +154,7 @@ export default function MiniSessionsPage() {
       {/* CTA */}
       <ScrollReveal>
         <section className="py-24 text-center bg-brand-dark text-white">
-          <h2 className="text-editorial font-serif mb-4 text-white">
+          <h2 className="text-editorial font-bold mb-4 text-white">
             Don&apos;t miss out on our next mini session!
           </h2>
           <p className="text-white/60 mb-8">
@@ -162,7 +162,7 @@ export default function MiniSessionsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-brand-pink text-white rounded-full px-10 py-4 uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-300"
+            className="inline-block border border-brand-dark text-brand-dark rounded-full px-10 py-4 uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-300"
           >
             BOOK A MINI SESSION →
           </Link>

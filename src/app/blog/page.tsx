@@ -76,7 +76,7 @@ export default function BlogPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 text-center">
-          <h1 className="text-hero font-serif text-white">BLOG</h1>
+          <h1 className="text-hero font-bold text-white">BLOG</h1>
           <p className="text-white/70 text-sm uppercase tracking-widest mt-4">
             Stories, tips &amp; behind the scenes
           </p>
@@ -115,7 +115,7 @@ export default function BlogPage() {
                     <span className="uppercase tracking-widest text-xs text-brand-pink font-medium mb-3">
                       {post.category}
                     </span>
-                    <h2 className="text-2xl font-serif mb-3 hover:text-brand-pink transition-colors cursor-pointer">
+                    <h2 className="text-2xl font-bold mb-3 hover:text-brand-pink transition-colors cursor-pointer">
                       {post.title}
                     </h2>
                     <span className="text-xs text-brand-gray mb-4">
@@ -138,7 +138,7 @@ export default function BlogPage() {
       {/* Newsletter CTA */}
       <section className="py-24 text-center bg-brand-light">
         <ScrollReveal>
-          <h2 className="text-editorial font-serif mb-4">Stay in the loop</h2>
+          <h2 className="text-editorial font-bold mb-4">Stay in the loop</h2>
           <p className="text-brand-gray mb-8">
             Get photography tips, session announcements, and behind-the-scenes
             content.

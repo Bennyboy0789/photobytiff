@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: Helvetica, Arial, system-ui, sans-serif;
   color: #1c1c1c;
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +15,7 @@ body {
 }
 
 ::selection {
-  background-color: #D6748B;
+  background-color: #1c1c1c;
   color: #ffffff;
 }
 
@@ -36,5 +34,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D6748B;
+  background: #999;
 }

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -18,7 +17,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,9 +29,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
+    if (menuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -40,69 +38,46 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [mobileOpen]);
+  }, [menuOpen]);
 
   return (
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-white shadow-md'
-            : 'bg-transparent'
+          scrolled ? 'bg-white' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="relative shrink-0">
-            <Image
-              src="/images/logo.png"
-              alt="Lifestyle Photography By Tiffany"
-              width={160}
-              height={50}
-              className="h-auto w-[120px] md:w-[160px]"
-              priority
-            />
+        <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-20">
+          {/* Logo — text only */}
+          <Link
+            href="/"
+            className={`text-[15px] font-bold uppercase tracking-[-0.5px] transition-colors duration-300 ${
+              scrolled ? 'text-brand-dark' : 'text-white'
+            }`}
+          >
+            TIFFANY GILPIN
           </Link>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`uppercase text-xs tracking-widest font-medium transition-colors duration-200 ${
-                  pathname === link.href
-                    ? 'text-brand-pink'
-                    : scrolled
-                      ? 'text-brand-dark hover:text-brand-pink'
-                      : 'text-white hover:text-brand-pink'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right side: Instagram + Book Now + Hamburger */}
-          <div className="flex items-center gap-4">
-            {/* Instagram Icon */}
+          {/* Right side: icons */}
+          <div className="flex items-center gap-5">
+            {/* Instagram */}
             <a
               href="https://instagram.com/photo.by.tiff"
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden md:block transition-colors duration-200 ${
-                scrolled ? 'text-brand-dark hover:text-brand-pink' : 'text-white hover:text-brand-pink'
+              className={`transition-colors duration-200 ${
+                scrolled ? 'text-brand-dark hover:text-brand-gray' : 'text-white hover:text-white/70'
               }`}
               aria-label="Instagram"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
+                width="18"
+                height="18"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
@@ -112,32 +87,24 @@ export default function Navbar() {
               </svg>
             </a>
 
-            {/* Book Now Button */}
-            <Link
-              href="/contact"
-              className="hidden md:inline-block bg-brand-pink text-white rounded-full px-6 py-2 uppercase tracking-widest text-xs font-semibold hover:bg-opacity-90 transition-all duration-200"
-            >
-              Book Now
-            </Link>
-
-            {/* Mobile Hamburger */}
+            {/* Hamburger Menu */}
             <button
-              className="md:hidden flex flex-col gap-1.5 p-2"
-              onClick={() => setMobileOpen(true)}
+              className="flex flex-col gap-[5px] p-2 cursor-pointer"
+              onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
               <span
-                className={`block w-6 h-0.5 transition-colors ${
+                className={`block w-5 h-[1.5px] transition-colors ${
                   scrolled ? 'bg-brand-dark' : 'bg-white'
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 transition-colors ${
+                className={`block w-5 h-[1.5px] transition-colors ${
                   scrolled ? 'bg-brand-dark' : 'bg-white'
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 transition-colors ${
+                className={`block w-5 h-[1.5px] transition-colors ${
                   scrolled ? 'bg-brand-dark' : 'bg-white'
                 }`}
               />
@@ -146,81 +113,72 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Full-screen Menu Overlay */}
       <AnimatePresence>
-        {mobileOpen && (
+        {menuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center"
+            className="fixed inset-0 z-50 bg-white flex flex-col"
           >
-            {/* Close Button */}
-            <button
-              className="absolute top-6 right-6 text-brand-dark text-3xl leading-none p-2"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
-            >
-              ✕
-            </button>
-
-            <motion.nav
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col items-center gap-6"
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-2xl font-serif transition-colors duration-200 ${
-                    pathname === link.href
-                      ? 'text-brand-pink'
-                      : 'text-brand-dark hover:text-brand-pink'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              {/* Mobile Instagram */}
-              <a
-                href="https://instagram.com/photo.by.tiff"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-dark hover:text-brand-pink transition-colors mt-4"
-                aria-label="Instagram"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-
-              {/* Mobile Book Now */}
+            {/* Top bar */}
+            <div className="flex items-center justify-between px-6 h-20">
               <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="mt-2 bg-brand-pink text-white rounded-full px-8 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-opacity-90 transition-all duration-200"
+                href="/"
+                onClick={() => setMenuOpen(false)}
+                className="text-[15px] font-bold uppercase tracking-[-0.5px] text-brand-dark"
               >
-                Book Now
+                TIFFANY GILPIN
               </Link>
-            </motion.nav>
+              <button
+                className="text-brand-dark p-2"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Nav Links */}
+            <div className="flex-1 flex flex-col justify-center px-12 md:px-24">
+              <motion.nav
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="flex flex-col gap-6"
+              >
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase tracking-[-1px] leading-none transition-colors duration-200 ${
+                      pathname === link.href
+                        ? 'text-brand-gray'
+                        : 'text-brand-dark hover:text-brand-gray'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+
+                {/* Book Now outline pill */}
+                <Link
+                  href="/contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="mt-8 inline-flex items-center gap-2 self-start border border-brand-dark text-brand-dark rounded-full px-8 py-3 uppercase tracking-widest text-xs font-semibold hover:bg-brand-dark hover:text-white transition-all duration-300"
+                >
+                  BOOK NOW
+                  <span className="text-sm">→</span>
+                </Link>
+              </motion.nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

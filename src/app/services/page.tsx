@@ -146,7 +146,7 @@ export default function ServicesPage() {
           <h2 className="text-editorial font-serif mb-8">Ready to book?</h2>
           <Link
             href="/contact"
-            className="inline-block bg-brand-pink text-white rounded-full px-10 py-4 uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-300"
+            className="inline-block border border-brand-dark text-brand-dark rounded-full px-10 py-4 uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-300"
           >
             SCHEDULE A SESSION →
           </Link>

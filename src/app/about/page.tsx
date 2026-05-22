@@ -18,7 +18,7 @@ export default function AboutPage() {
           priority
         />
         <div className="absolute inset-0 bg-black/40" />
-        <h1 className="relative z-10 text-hero font-serif text-white text-center">
+        <h1 className="relative z-10 text-hero font-bold text-white text-center">
           ABOUT TIFFANY
         </h1>
       </section>
@@ -41,7 +41,7 @@ export default function AboutPage() {
           {/* Right - Bio */}
           <ScrollReveal direction="right" delay={0.2}>
             <div className="w-16 h-[2px] bg-brand-pink mb-6" />
-            <h2 className="text-editorial font-serif mb-8">Meet Tiffany</h2>
+            <h2 className="text-editorial font-bold mb-8">Meet Tiffany</h2>
             <p className="mb-6 text-brand-gray leading-relaxed">
               I&apos;m Tiffany, your North Carolina-based Lifestyle Photographer. My
               passion lies in capturing the unfiltered beauty of life, and crafting
@@ -87,7 +87,7 @@ export default function AboutPage() {
       {/* CTA Section */}
       <ScrollReveal>
         <section className="py-24 text-center bg-brand-light">
-          <h2 className="text-editorial font-serif mb-8">
+          <h2 className="text-editorial font-bold mb-8">
             Let&apos;s create something beautiful together
           </h2>
           <Link

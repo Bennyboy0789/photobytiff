@@ -77,7 +77,7 @@ export default function PortfolioPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
         <ScrollReveal className="relative z-10 text-center">
-          <h1 className="text-hero font-serif text-white tracking-wider">
+          <h1 className="text-hero font-bold text-white tracking-wider">
             PORTFOLIO
           </h1>
         </ScrollReveal>

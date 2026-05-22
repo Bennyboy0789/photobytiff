@@ -14,15 +14,26 @@ const config: Config = {
           dark: "#1c1c1c",
           gray: "#6b6b6b",
           light: "#f8f8f8",
+          accent: "#4FFF99",
         },
       },
       fontFamily: {
-        serif: ["Playfair Display", "Georgia", "serif"],
-        sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ["Georgia", "serif"],
+        sans: ["Helvetica", "Arial", "system-ui", "sans-serif"],
       },
       fontSize: {
-        editorial: ["clamp(2.5rem, 5vw, 4rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        hero: ["clamp(4rem, 10vw, 8rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
+        editorial: [
+          "clamp(2rem, 4vw, 3.5rem)",
+          { lineHeight: "1.05", fontWeight: "700", letterSpacing: "-0.5px" },
+        ],
+        hero: [
+          "clamp(3rem, 8vw, 5rem)",
+          { lineHeight: "1", fontWeight: "700", letterSpacing: "-1px" },
+        ],
+        statement: [
+          "clamp(2.5rem, 5vw, 4rem)",
+          { lineHeight: "1", fontWeight: "700", letterSpacing: "-0.5px" },
+        ],
       },
       letterSpacing: {
         widest: "0.2em",
