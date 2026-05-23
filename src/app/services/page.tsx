@@ -1,26 +1,66 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal';
 import PageTransition from '@/components/PageTransition';
 
+export const metadata: Metadata = {
+  title: 'Services & Pricing',
+  description:
+    'Photography packages starting at $175. Newborn ($350), Maternity ($300), Family ($400), Cake Smash ($350), and Mini Sessions. Spring Lake, NC.',
+  alternates: { canonical: 'https://photobytiff.com/services' },
+  openGraph: {
+    title: 'Photography Services & Pricing | Lifestyle Photography by Tiffany',
+    description:
+      'Newborn, family, maternity, milestone, and cake smash photography packages in Spring Lake, NC. Transparent pricing starting at $175.',
+    images: [{ url: '/images/real/family-lifestyle-portrait-spring-lake-nc.jpg', alt: 'Family Photography by Tiffany' }],
+  },
+};
+
 const services = [
   {
-    name: 'NEWBORN',
-    price: 300,
+    name: 'THEMED MINI SESSIONS',
+    price: 175,
     details: [
-      'Up To 1 Hour Baby-Led Session',
-      '20 High-Res Digitally Enhanced Images',
+      '15-20 Minute Session',
+      '8 High-Res Digitally Enhanced Images',
       'Online Gallery',
     ],
   },
   {
     name: 'MILESTONE',
-    price: 250,
+    price: 200,
     details: [
       '1 Hour Session',
       '15 High-Res Digitally Enhanced Images',
+      'Online Gallery',
+    ],
+  },
+  {
+    name: 'CAKE SMASH',
+    price: 250,
+    details: [
+      'Up To 1 Hour Session',
+      '15 High-Res Digitally Enhanced Images',
+      'Cake Included',
+      'Online Gallery',
+    ],
+  },
+  {
+    name: 'MATERNITY',
+    price: 300,
+    details: [
+      '1 Hour Session',
+      '20 High-Res Digitally Enhanced Images',
+      'Online Gallery',
+    ],
+  },
+  {
+    name: 'NEWBORN',
+    price: 350,
+    details: [
+      'Up To 1 Hour Baby-Led Session',
+      '20 High-Res Digitally Enhanced Images',
       'Online Gallery',
     ],
   },
@@ -34,30 +74,11 @@ const services = [
       'Online Gallery',
     ],
   },
-  {
-    name: 'PORTRAIT',
-    price: 250,
-    details: [
-      '1 Hour Session',
-      '15 High-Res Digitally Enhanced Images',
-      'Online Gallery',
-    ],
-  },
-  {
-    name: 'CAKE SMASH',
-    price: 350,
-    details: [
-      'Up To 1 Hour Session',
-      '15 High-Res Digitally Enhanced Images',
-      'Cake Included',
-      'Online Gallery',
-    ],
-  },
 ];
 
 const goodToKnow = [
   'All images are delivered via an online gallery',
-  'Studio sessions may include an additional studio fee',
+  'We do not work out of a studio — all sessions are held on location',
   'Travel included within 30 miles of Spring Lake, NC',
   'Additional travel available upon request',
   '50% non-refundable retainer required to book',
@@ -70,7 +91,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="h-[50vh] relative flex items-center justify-center">
         <Image
-          src="/images/services/families.jpg"
+          src="/images/real/family-lifestyle-portrait-spring-lake-nc.jpg"
           alt="Services and Pricing"
           fill
           className="object-cover"

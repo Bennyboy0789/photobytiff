@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="text-right">
             <p className="text-[15px] text-brand-gray">Spring Lake, NC</p>
             <p className="text-[13px] text-brand-gray mt-1">
-              &copy; 2026 Tiffany Gilpin Photography
+              &copy; 2026 Tiffany Jarosz Photography
             </p>
           </div>
         </div>

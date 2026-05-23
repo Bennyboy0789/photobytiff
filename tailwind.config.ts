@@ -11,14 +11,17 @@ const config: Config = {
       colors: {
         brand: {
           pink: "#D6748B",
+          blush: "#F5E8EC",
+          sage: "#9BAA95",
+          cream: "#FAF6F0",
           dark: "#1c1c1c",
-          gray: "#6b6b6b",
-          light: "#f8f8f8",
-          accent: "#4FFF99",
+          gray: "#7A7268",
+          light: "#EFF2EC",
+          accent: "#9BAA95",
         },
       },
       fontFamily: {
-        serif: ["Georgia", "serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
         sans: ["Helvetica", "Arial", "system-ui", "sans-serif"],
       },
       fontSize: {

@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled ? 'bg-white' : 'bg-transparent'
+          scrolled ? 'bg-brand-cream' : 'bg-transparent'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-20">
@@ -55,7 +55,7 @@ export default function Navbar() {
               scrolled ? 'text-brand-dark' : 'text-white'
             }`}
           >
-            TIFFANY GILPIN
+            TIFFANY JAROSZ
           </Link>
 
           {/* Right side: icons */}
@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-white flex flex-col"
+            className="fixed inset-0 z-50 bg-brand-cream flex flex-col"
           >
             {/* Top bar */}
             <div className="flex items-center justify-between px-6 h-20">
@@ -130,7 +130,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 className="text-[15px] font-bold uppercase tracking-[-0.5px] text-brand-dark"
               >
-                TIFFANY GILPIN
+                TIFFANY JAROSZ
               </Link>
               <button
                 className="text-brand-dark p-2"
