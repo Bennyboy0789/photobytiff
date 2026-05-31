@@ -91,7 +91,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="h-[50vh] relative flex items-center justify-center">
         <Image
-          src="/images/real/family-lifestyle-portrait-spring-lake-nc.jpg"
+          src="/images/real/children-outdoor-session-portrait.jpg"
           alt="Services and Pricing"
           fill
           className="object-cover"

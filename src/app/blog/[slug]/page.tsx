@@ -1,0 +1,90 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import ScrollReveal from '@/components/ScrollReveal';
+import { blogPosts, getPostBySlug } from '../posts';
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) return { title: 'Post Not Found' };
+
+  return {
+    title: post.title,
+    description: post.excerpt.slice(0, 155),
+    alternates: { canonical: `https://photobytiff.com/blog/${post.slug}` },
+    openGraph: {
+      title: `${post.title} | Lifestyle Photography by Tiffany`,
+      description: post.excerpt.slice(0, 200),
+      images: [{ url: post.image, alt: post.title }],
+    },
+  };
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  if (!post) notFound();
+
+  return (
+    <main className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="relative h-[60vh] flex items-end overflow-hidden">
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="relative z-10 max-w-3xl mx-auto w-full px-6 pb-12 text-white">
+          <span className="uppercase tracking-widest text-xs text-white/80 font-medium">
+            {post.category}
+          </span>
+          <h1 className="font-serif italic text-[clamp(2rem,5vw,3.5rem)] leading-tight mt-3">
+            {post.title}
+          </h1>
+          <span className="text-xs text-white/70 mt-4 block">{post.date}</span>
+        </div>
+      </section>
+
+      {/* Body */}
+      <ScrollReveal>
+        <article className="py-20 px-6 max-w-2xl mx-auto">
+          <p className="text-brand-gray leading-loose text-[17px] whitespace-pre-line">
+            {post.excerpt}
+          </p>
+
+          <div className="mt-16 pt-10 border-t border-gray-100 flex items-center justify-between">
+            <Link
+              href="/blog"
+              className="uppercase tracking-widest text-xs font-medium text-brand-dark hover:text-brand-pink transition-colors"
+            >
+              ← Back to Blog
+            </Link>
+            <Link
+              href="/contact"
+              className="uppercase tracking-widest text-xs font-medium text-brand-pink hover:text-brand-dark transition-colors"
+            >
+              Book a Session →
+            </Link>
+          </div>
+        </article>
+      </ScrollReveal>
+    </main>
+  );
+}
