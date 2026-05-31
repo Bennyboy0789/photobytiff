@@ -90,7 +90,6 @@ export default function RootLayout({
         description:
           'Lifestyle photographer in Spring Lake, NC specializing in newborn, family, maternity, milestone, and cake smash photography.',
         url: siteUrl,
-        telephone: '',
         email: 'hello@photobytiff.com',
         image: `${siteUrl}/images/real/children-lifestyle-boho-tent-session-spring-lake-nc.jpg`,
         logo: `${siteUrl}/images/logo.png`,
@@ -113,7 +112,11 @@ export default function RootLayout({
           { '@type': 'State', name: 'North Carolina' },
         ],
         priceRange: '$$',
-        sameAs: ['https://www.instagram.com/photo.by.tiff/'],
+        founder: { '@id': `${siteUrl}/#person` },
+        sameAs: [
+          'https://www.instagram.com/photo.by.tiff/',
+          'https://www.facebook.com/LifestylePhotographyByTiffany',
+        ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Photography Services',
@@ -133,7 +136,10 @@ export default function RootLayout({
         jobTitle: 'Lifestyle Photographer',
         worksFor: { '@id': `${siteUrl}/#business` },
         url: `${siteUrl}/about`,
-        sameAs: ['https://www.instagram.com/photo.by.tiff/'],
+        sameAs: [
+          'https://www.instagram.com/photo.by.tiff/',
+          'https://www.facebook.com/LifestylePhotographyByTiffany',
+        ],
       },
       {
         '@type': 'WebSite',
