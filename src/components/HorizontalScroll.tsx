@@ -52,15 +52,15 @@ export default function HorizontalScroll({ children }: HorizontalScrollProps) {
 
   return (
     <HorizontalContext.Provider value={{ progress: scrollYProgress, lockStart, lockEnd }}>
-      {/* Mobile: native horizontal swipe with snap */}
+      {/* Mobile: native vertical scroll with snap — scroll down to next section */}
       <div
-        className="md:hidden flex overflow-x-auto snap-x snap-mandatory no-scrollbar"
+        className="md:hidden overflow-y-auto snap-y snap-mandatory no-scrollbar"
         style={{ height: '100dvh' }}
       >
         {panels.map((panel, i) => (
           <div
             key={i}
-            className="snap-start flex-shrink-0 overflow-hidden"
+            className="snap-start overflow-hidden"
             style={{ width: '100vw', height: '100dvh' }}
           >
             {panel}
