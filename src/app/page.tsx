@@ -6,21 +6,15 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import HorizontalScroll from '@/components/HorizontalScroll';
 import PageTransition from '@/components/PageTransition';
+import AboutPhotoCycler from '@/components/AboutPhotoCycler';
 
 const services = [
-  { name: 'Maternity', image: '/images/real/maternity-photographer-green-dress-ultrasound-spring-lake-nc.jpg', href: '/portfolio' },
-  { name: 'Newborn', image: '/images/real/newborn-twin-girls-black-white-portrait.jpg', href: '/portfolio' },
-  { name: 'Children', image: '/images/real/children-portrait-outdoor-natural-light-spring-lake-nc.jpg', href: '/portfolio' },
-  { name: 'Families', image: '/images/real/children-natural-light-outdoor-session-spring-lake-nc.jpg', href: '/portfolio' },
-  { name: 'Cake Smash', image: '/images/real/cake-smash-first-birthday-outdoor-spring-lake-nc.jpg', href: '/portfolio' },
-  { name: 'Milestones', image: '/images/real/children-portrait-boy-plaid-shirt-playground-arms-raised.jpg', href: '/portfolio' },
-];
-
-const featuredWork = [
-  { image: '/images/real/children-lifestyle-boho-tent-girl-daisy-dress.jpg', caption: 'Children' },
-  { image: '/images/real/cake-smash-birthday-celebration-session.jpg', caption: 'Cake Smash' },
-  { image: '/images/real/family-portrait-outdoor-spring-lake-nc.jpg', caption: 'Family Session' },
-  { image: '/images/real/children-portrait-outdoor-natural-light-2.jpg', caption: 'Children' },
+  { name: 'Maternity', image: '/images/real/family-portrait-outdoor-lifestyle.jpg', href: '/portfolio' },
+  { name: 'Newborn', image: '/images/real/family-lifestyle-session-outdoor.jpg', href: '/portfolio' },
+  { name: 'Children', image: '/images/real/children-portrait-boy-bridge-arms-raised-outdoors.jpg', href: '/portfolio' },
+  { name: 'Families', image: '/images/real/family-lifestyle-outdoor-portrait-2.jpg', href: '/portfolio' },
+  { name: 'Cake Smash', image: '/images/real/family-milestone-session-nature-2.jpg', href: '/portfolio' },
+  { name: 'Milestones', image: '/images/real/portrait-teen-boy-yellow-shirt-clarinet.jpg', href: '/portfolio' },
 ];
 
 const testimonials = [
@@ -72,19 +66,14 @@ export default function Home() {
         {/* ─── Panel 01: HERO ─── */}
         <div className="relative w-full h-full overflow-hidden">
           <Image
-            src="/images/real/children-lifestyle-boho-tent-session-spring-lake-nc.jpg"
-            alt="Lifestyle photography session"
+            src="/images/real/family-milestone-outdoor-portrait-2.jpg"
+            alt="Spring Lake NC family photographer - outdoor milestone portrait session"
             fill
             className="object-cover"
             priority
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/50" />
-
-          {/* Decorative panel number */}
-          <span className="absolute -top-6 right-0 text-[clamp(10rem,22vw,22rem)] font-bold leading-none text-white/[0.06] select-none pointer-events-none tracking-tighter">
-            01
-          </span>
 
           {/* Vertical edge label */}
           <div
@@ -93,9 +82,6 @@ export default function Home() {
           >
             § Photography · Spring Lake NC
           </div>
-
-          {/* Thin horizontal rule */}
-          <div className="absolute left-0 right-0 top-[38%] h-px bg-white/10" />
 
           {/* Name block */}
           <div className="absolute bottom-12 left-10 md:left-16 z-10 text-white">
@@ -147,11 +133,6 @@ export default function Home() {
               &ldquo;
             </span>
 
-            {/* Decorative panel number */}
-            <span className="absolute -top-4 right-4 text-[clamp(7rem,16vw,14rem)] font-bold leading-none text-brand-dark/[0.04] select-none pointer-events-none tracking-tighter">
-              02
-            </span>
-
             <div className="relative z-10">
               <p className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3">§ 02 — About</p>
               <div className="h-px w-10 bg-brand-dark/30 mb-6" />
@@ -166,7 +147,7 @@ export default function Home() {
               </p>
               <div className="h-px w-full max-w-sm bg-brand-dark/10 mt-6 mb-5" />
               <p className="text-brand-gray text-sm leading-relaxed max-w-sm">
-                Based in Spring Lake, North Carolina — specializing in maternity, newborn, family, and milestone photography.
+                Based in Spring Lake, NC, Lifestyle Photography by Tiffany serves families throughout the surrounding area. I specialize in family, children, and milestone photography, capturing authentic connections and the little moments that make your story unique.
               </p>
               <div className="mt-8">
                 <Link
@@ -180,26 +161,24 @@ export default function Home() {
           </div>
 
           {/* Right: photo */}
-          <div className="hidden md:block w-[42%] relative flex-shrink-0 p-4">
-            <div className="relative w-full h-full border border-brand-dark/10">
+          <div className="hidden md:block w-[55%] relative flex-shrink-0 p-4">
+            <AboutPhotoCycler />
+
+            {/* Floating overlap photo */}
+            <div className="absolute bottom-16 left-12 w-80 lg:w-96 aspect-[3/4] z-20 border-4 border-brand-cream shadow-2xl rotate-3">
               <Image
-                src="/images/real/portrait-photographer-tiffany-gilpin-spring-lake-nc.jpg"
-                alt="Tiffany Jarosz Photography"
+                src="/images/real/tiffany-jarosz-photographer.jpg"
+                alt="Tiffany Jarosz, photographer"
                 fill
                 className="object-cover"
-                sizes="42vw"
+                sizes="24rem"
               />
             </div>
           </div>
         </div>
 
         {/* ─── Panel 03: SESSIONS ─── */}
-        <div className="h-full flex flex-col bg-brand-light overflow-hidden relative pt-20">
-          {/* Decorative panel number */}
-          <span className="absolute -top-4 right-0 text-[clamp(10rem,20vw,18rem)] font-bold leading-none text-brand-dark/[0.05] select-none pointer-events-none tracking-tighter">
-            03
-          </span>
-
+        <div className="h-full flex flex-col bg-brand-light overflow-hidden relative pt-32">
           {/* Header */}
           <div className="flex items-end justify-between px-8 md:px-14 py-6 flex-shrink-0 relative z-10">
             <div>
@@ -258,68 +237,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ─── Panel 04: FEATURED WORK ─── */}
-        <div className="h-full relative bg-brand-dark overflow-hidden">
-          {/* Decorative panel number */}
-          <span className="absolute -top-4 right-0 text-[clamp(10rem,20vw,18rem)] font-bold leading-none text-white/[0.06] select-none pointer-events-none tracking-tighter">
-            04
-          </span>
-
-          {/* Label */}
-          <div className="absolute top-24 left-8 md:left-14 z-10">
-            <p className="text-[9px] tracking-[0.35em] uppercase text-white/40 mb-2">§ 04 — Gallery</p>
-            <div className="h-px w-10 bg-white/20 mb-3" />
-            <h2 className="font-serif italic text-[clamp(1.4rem,3vw,2.2rem)] leading-none text-white">
-              Featured Work.
-            </h2>
-          </div>
-
-          <Link
-            href="/portfolio"
-            className="absolute bottom-10 right-10 z-10 text-[10px] tracking-[0.25em] uppercase text-white/50 hover:text-white transition-colors"
-          >
-            [ View Portfolio → ]
-          </Link>
-
-          {/* 2×2 grid with hairlines */}
-          <div className="grid grid-cols-2 grid-rows-2 h-full gap-px bg-white/10">
-            {featuredWork.map((work, i) => (
-              <div key={work.caption} className="relative overflow-hidden group bg-brand-dark">
-                <Image
-                  src={work.image}
-                  alt={work.caption}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.04] opacity-90 group-hover:opacity-100"
-                  sizes="50vw"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
-                {/* Caption */}
-                <p className="absolute bottom-3 left-3 text-transparent group-hover:text-white/80 text-[9px] tracking-[0.25em] uppercase transition-all duration-300">
-                  {work.caption}
-                </p>
-                {/* Image number */}
-                <span className="absolute top-3 left-3 text-[8px] text-white/20 font-mono">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ─── Panel 05: TESTIMONIALS ─── */}
+        {/* ─── Panel 04: TESTIMONIALS ─── */}
         <div className="h-full flex flex-col justify-center px-8 md:px-20 pt-20 bg-brand-blush overflow-hidden relative">
           {/* Decorative giant quote mark */}
           <span className="absolute top-8 left-4 md:left-10 font-serif text-[clamp(12rem,28vw,22rem)] leading-none text-brand-pink/20 select-none pointer-events-none">
             &ldquo;
           </span>
 
-          {/* Decorative panel number */}
-          <span className="absolute -top-4 right-0 text-[clamp(10rem,20vw,18rem)] font-bold leading-none text-brand-dark/[0.05] select-none pointer-events-none tracking-tighter">
-            05
-          </span>
-
           <div className="max-w-3xl mx-auto w-full relative z-10">
-            <p className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3">§ 05 — Kind Words</p>
+            <p className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3">§ 04 — Kind Words</p>
             <div className="h-px w-10 bg-brand-dark/30 mb-8" />
 
             <motion.div
@@ -359,12 +285,17 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ─── Panel 06: BOOK ─── */}
+        {/* ─── Panel 05: BOOK ─── */}
         <div className="h-full flex flex-col justify-center bg-brand-dark px-8 md:px-14 pt-20 overflow-hidden relative">
-          {/* Decorative panel number */}
-          <span className="absolute -top-4 right-0 text-[clamp(10rem,20vw,18rem)] font-bold leading-none text-white/[0.06] select-none pointer-events-none tracking-tighter">
-            06
-          </span>
+          {/* Background image */}
+          <Image
+            src="/images/real/Photo-Banner.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-brand-dark/70" />
 
           {/* Vertical edge label */}
           <div
@@ -375,7 +306,7 @@ export default function Home() {
           </div>
 
           <div className="relative z-10">
-            <p className="text-[9px] tracking-[0.35em] uppercase text-white/40 mb-3">§ 06 — Contact</p>
+            <p className="text-[9px] tracking-[0.35em] uppercase text-white/40 mb-3">§ 05 — Contact</p>
             <div className="h-px w-10 bg-white/20 mb-6" />
             <h2 className="leading-none tracking-tighter">
               <span className="block font-sans font-bold text-[clamp(3rem,9vw,7.5rem)] text-white">

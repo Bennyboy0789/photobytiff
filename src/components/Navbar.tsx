@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -47,46 +48,22 @@ export default function Navbar() {
           scrolled ? 'bg-brand-cream' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-20">
-          {/* Logo — text only */}
-          <Link
-            href="/"
-            className={`text-[15px] font-bold uppercase tracking-[-0.5px] transition-colors duration-300 ${
-              scrolled ? 'text-brand-dark' : 'text-white'
-            }`}
-          >
-            TIFFANY JAROSZ
+        <div className="w-full px-6 flex items-center justify-between h-28">
+          {/* Logo */}
+          <Link href="/" aria-label="Tiffany Jarosz Photography — Home">
+            <Image
+              src="/images/real/NEW-Logo-Design-BLACK.png"
+              alt="Tiffany Jarosz Photography"
+              width={1000}
+              height={1000}
+              sizes="96px"
+              priority
+              className="h-24 w-auto"
+            />
           </Link>
 
           {/* Right side: icons */}
           <div className="flex items-center gap-5">
-            {/* Instagram */}
-            <a
-              href="https://instagram.com/photo.by.tiff"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`transition-colors duration-200 ${
-                scrolled ? 'text-brand-dark hover:text-brand-gray' : 'text-white hover:text-white/70'
-              }`}
-              aria-label="Instagram"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </a>
-
             {/* Hamburger Menu */}
             <button
               className="flex flex-col gap-[5px] p-2 cursor-pointer"
@@ -124,13 +101,19 @@ export default function Navbar() {
             className="fixed inset-0 z-50 bg-brand-cream flex flex-col"
           >
             {/* Top bar */}
-            <div className="flex items-center justify-between px-6 h-20">
+            <div className="flex items-center justify-between px-6 h-28">
               <Link
                 href="/"
                 onClick={() => setMenuOpen(false)}
-                className="text-[15px] font-bold uppercase tracking-[-0.5px] text-brand-dark"
+                aria-label="Tiffany Jarosz Photography — Home"
               >
-                TIFFANY JAROSZ
+                <Image
+                  src="/images/real/NEW-Logo-Design-BLACK.png"
+                  alt="Tiffany Jarosz Photography"
+                  width={1000}
+                  height={1000}
+                  className="h-24 w-auto"
+                />
               </Link>
               <button
                 className="text-brand-dark p-2"

@@ -24,6 +24,14 @@ export default function Footer() {
               >
                 Instagram
               </a>
+              <a
+                href="https://www.facebook.com/LifestylePhotographyByTiffany"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[15px] text-brand-gray hover:text-brand-dark transition-colors"
+              >
+                Facebook
+              </a>
             </div>
           </div>
 

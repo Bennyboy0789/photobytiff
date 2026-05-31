@@ -23,7 +23,7 @@ export default function AboutPage() {
       {/* Hero Banner */}
       <section className="h-[50vh] relative flex items-center justify-center">
         <Image
-          src="/images/real/portrait-photographer-tiffany-gilpin-spring-lake-nc.jpg"
+          src="/images/real/photographer-tiffany-gilpin-with-camera.jpg"
           alt="About Tiffany"
           fill
           className="object-cover"
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <ScrollReveal direction="left">
             <div className="aspect-[3/4] relative overflow-hidden">
               <Image
-                src="/images/real/photographer-tiffany-gilpin-with-camera.jpg"
+                src="/images/real/lifestyle-photography-by-tiffany.jpg"
                 alt="Tiffany with camera"
                 fill
                 className="object-cover"
@@ -95,15 +95,15 @@ export default function AboutPage() {
 
       {/* Second Image Section */}
       <ScrollReveal>
-        <section className="py-24">
-          <div className="h-[40vh] relative">
-            <Image
-              src="/images/real/family-outdoor-session-lifestyle-banner.jpg"
-              alt="Family photo"
-              fill
-              className="object-cover"
-            />
-          </div>
+        <section className="pt-8 pb-24 px-6 max-w-7xl mx-auto">
+          <Image
+            src="/images/real/Jarosz-Family.jpg"
+            alt="The Jarosz family"
+            width={3295}
+            height={2059}
+            className="w-full h-auto"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+          />
         </section>
       </ScrollReveal>
 
