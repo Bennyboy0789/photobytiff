@@ -12,10 +12,8 @@ interface FormData {
   preferredLocation: string;
   message: string;
   howDidYouHear: string;
+  company: string; // honeypot — hidden from real users
 }
-
-// Sign up at formspree.io and replace this with your form ID
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/hello@photobytiff.com';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -26,6 +24,7 @@ export default function ContactForm() {
     preferredLocation: '',
     message: '',
     howDidYouHear: '',
+    company: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -44,7 +43,7 @@ export default function ContactForm() {
     setError('');
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(formData),
@@ -81,6 +80,13 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      {/* Honeypot field — hidden from real users, catches bots */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input type="text" id="company" name="company" tabIndex={-1} autoComplete="off"
+          value={formData.company} onChange={handleChange} />
+      </div>
+
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="sr-only">Full Name</label>
