@@ -124,15 +124,7 @@ export const blogPosts: BlogPost[] = [
     image: '/images/services/cake-smash.jpg',
     excerpt:
       "Choosing the right outfits can make or break your photos. I always recommend coordinating rather than matching, sticking to a cohesive color palette, and choosing timeless pieces over trendy ones. The single best piece of advice I can give is this: complement, don't match. Matching outfits (everyone in white shirts and jeans) can feel dated and flat, while thoughtfully coordinated outfits add depth and interest. Start by choosing one person's outfit you love — often mom's, or the child with the most options — and build everyone else's look around it, pulling colors from that piece rather than copying it exactly. Aim for a palette of two to four cohesive tones. Warm neutrals, soft blues and creams, earthy greens, and muted dusty shades all photograph beautifully and stay timeless. Avoid neon colors, large logos, and busy character prints — they pull the eye away from faces and tend to look dated quickly. Mixing textures and patterns at different scales is where outfits really come alive: pair a subtle floral with a solid, or let one person wear a gentle stripe or plaid while everyone else stays simple. Dress for the season and the setting, too. Flowy dresses, linens, and soft layers are perfect for golden-hour sessions in our warmer North Carolina months, while cozy knits and richer tones suit fall and the cooler season beautifully. Don't forget the details — coordinated shoes, simple accessories, and tamed hair all show up in photos. Above all, prioritize comfort, especially for little ones. If your toddler is itchy, too hot, or fussing with a stiff collar, it will absolutely show on their face, and no outfit is worth a meltdown. Lay everything out the night before so the morning isn't a scramble. And if you're ever stuck, send me a few options before your session — I'm always happy to help you choose. The right outfits won't just look good; they'll help your family feel relaxed and confident, and that always makes for better photos.",
-  },
-  {
-    slug: 'test-post-hermes-agent',
-    title: 'Test Post - Hermes Agent Integration',
-    date: 'June 1,１０２６',
-    category: 'Tips',
-    image: '/images/hero/hero-1.jpg',
-    excerpt: 'This is a test post added by Hermes Agent to verify automated pipeline integration. Please delete this post after verification.',
-  },
+  }
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
