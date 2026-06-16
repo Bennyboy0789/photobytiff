@@ -7,12 +7,12 @@ import PageTransition from '@/components/PageTransition';
 export const metadata: Metadata = {
   title: 'Services & Pricing',
   description:
-    'Photography packages starting at $175. Newborn ($350), Maternity ($300), Family ($400), Cake Smash ($350), and Mini Sessions. Spring Lake, NC.',
+    'Photography packages starting at $99. Newborn ($350), Maternity ($300), Family ($400), Cake Smash ($350), and Mini Sessions. Spring Lake, NC.',
   alternates: { canonical: 'https://photobytiff.com/services' },
   openGraph: {
     title: 'Photography Services & Pricing | Lifestyle Photography by Tiffany',
     description:
-      'Newborn, family, maternity, milestone, and cake smash photography packages in Spring Lake, NC. Transparent pricing starting at $175.',
+      'Newborn, family, maternity, milestone, and cake smash photography packages in Spring Lake, NC. Transparent pricing starting at $99.',
     images: [{ url: '/images/real/family-lifestyle-portrait-spring-lake-nc.jpg', alt: 'Family Photography by Tiffany' }],
   },
 };
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const services = [
   {
     name: 'THEMED MINI SESSIONS',
-    price: 175,
+    price: 99,
     details: [
       '15-20 Minute Session',
       '8 High-Res Digitally Enhanced Images',

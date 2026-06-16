@@ -80,12 +80,12 @@ export default function MiniSessionsClient() {
           </h2>
           <p className="text-brand-gray leading-relaxed">
             Mini sessions are perfect for those who want beautiful, professional
-            photos without the commitment of a full session. At just $175, you get
+            photos without the commitment of a full session. At just $99, you get
             15-20 minutes of shooting time and 8 high-resolution digitally enhanced
             images delivered via an online gallery.
           </p>
           <div className="mt-8">
-            <p className="text-5xl font-bold text-brand-dark">$175</p>
+            <p className="text-5xl font-bold text-brand-dark">$99</p>
             <p className="text-sm text-brand-gray">per session</p>
           </div>
         </section>

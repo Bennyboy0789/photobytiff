@@ -4,12 +4,12 @@ import MiniSessionsClient from './MiniSessionsClient';
 export const metadata: Metadata = {
   title: 'Mini Sessions',
   description:
-    'Affordable 15-20 minute themed mini photography sessions in Spring Lake, NC. Just $175 — includes 8 high-resolution images. Valentine\'s, Spring, Fall, Christmas & more.',
+    'Affordable 15-20 minute themed mini photography sessions in Spring Lake, NC. Just $99 — includes 8 high-resolution images. Valentine\'s, Spring, Fall, Christmas & more.',
   alternates: { canonical: 'https://photobytiff.com/mini-sessions' },
   openGraph: {
     title: 'Mini Sessions | Lifestyle Photography by Tiffany',
     description:
-      'Seasonal themed mini sessions for $175. 15-20 minutes, 8 high-res images. Spring Lake, NC.',
+      'Seasonal themed mini sessions for $99. 15-20 minutes, 8 high-res images. Spring Lake, NC.',
     images: [{ url: '/images/hero/hero-3.jpg', alt: 'Mini Sessions - Lifestyle Photography by Tiffany' }],
   },
 };

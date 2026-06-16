@@ -125,7 +125,7 @@ export default function RootLayout({
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Family Photography', description: 'Family lifestyle session up to 6 people' }, price: '400', priceCurrency: 'USD' },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Maternity Photography', description: 'Maternity lifestyle session' }, price: '250', priceCurrency: 'USD' },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cake Smash Photography', description: 'Cake smash session with cake included' }, price: '350', priceCurrency: 'USD' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mini Sessions', description: '15-20 minute themed seasonal sessions' }, price: '175', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mini Sessions', description: '15-20 minute themed seasonal sessions' }, price: '99', priceCurrency: 'USD' },
           ],
         },
       },
