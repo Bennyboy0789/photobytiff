@@ -65,9 +65,16 @@ export default async function BlogPostPage({
       {/* Body */}
       <ScrollReveal>
         <article className="py-20 px-6 max-w-2xl mx-auto">
-          <p className="text-brand-gray leading-loose text-[17px] whitespace-pre-line">
-            {post.excerpt}
-          </p>
+          {post.content ? (
+            <div
+              className="prose prose-lg max-w-none [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-12 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-8 [&>h3]:mb-3 [&>p]:text-brand-gray [&>p]:leading-loose [&>p]:text-[17px] [&>p]:mb-5"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          ) : (
+            <p className="text-brand-gray leading-loose text-[17px] whitespace-pre-line">
+              {post.excerpt}
+            </p>
+          )}
 
           <div className="mt-16 pt-10 border-t border-gray-100 flex items-center justify-between">
             <Link
