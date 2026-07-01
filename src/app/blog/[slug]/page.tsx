@@ -113,6 +113,26 @@ export default async function BlogPostPage({
             </p>
           )}
 
+          {post.relatedLinks && post.relatedLinks.length > 0 && (
+            <div className="mt-14 bg-brand-light rounded-sm p-8">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">
+                Related Sessions
+              </h2>
+              <ul className="space-y-2">
+                {post.relatedLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-brand-gray hover:text-brand-pink transition-colors"
+                    >
+                      {link.label} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           <div className="mt-16 pt-10 border-t border-gray-100 flex items-center justify-between">
             <Link
               href="/blog"

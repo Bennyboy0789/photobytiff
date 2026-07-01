@@ -200,6 +200,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Military families callout */}
+      <ScrollReveal>
+        <section className="py-12 px-6 max-w-3xl mx-auto text-center">
+          <p className="text-brand-gray leading-relaxed">
+            Stationed at Fort Bragg? I photograph many military families —
+            homecomings, pre-deployment sessions, and PCS-move portraits.{' '}
+            <Link
+              href="/fort-bragg-family-photographer"
+              className="text-brand-pink hover:text-brand-dark transition-colors font-medium underline underline-offset-2"
+            >
+              See Fort Bragg family sessions →
+            </Link>
+          </p>
+        </section>
+      </ScrollReveal>
+
       {/* Good to Know */}
       <ScrollReveal>
         <section className="py-16 px-6 max-w-3xl mx-auto text-center">

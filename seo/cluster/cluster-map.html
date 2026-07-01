@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Content Cluster Map — photobytiff.com</title>
+<style>
+  :root { --bg:#0f1115; --panel:#1a1d24; --ink:#e8eaed; --muted:#9aa0aa; --line:#2b2f3a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; }
+  header { padding:20px 28px; border-bottom:1px solid var(--line); }
+  h1 { margin:0 0 4px; font-size:20px; }
+  header p { margin:0; color:var(--muted); font-size:13px; }
+  .wrap { display:flex; gap:0; height:calc(100vh - 74px); }
+  .canvas { flex:1; overflow:hidden; position:relative; }
+  aside { width:340px; border-left:1px solid var(--line); padding:20px; overflow-y:auto; background:var(--panel); }
+  aside h2 { font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 10px; }
+  .metrics { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:22px; }
+  .metric { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:12px; }
+  .metric .n { font-size:22px; font-weight:700; }
+  .metric .l { font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; }
+  .legend div { display:flex; align-items:center; gap:8px; margin-bottom:6px; font-size:13px; }
+  .dot { width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+  .detail { margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
+  .detail.hidden { display:none; }
+  .detail h3 { margin:0 0 6px; font-size:15px; }
+  .detail .kw { color:var(--muted); font-size:12px; margin-bottom:12px; }
+  .detail table { width:100%; border-collapse:collapse; font-size:12px; }
+  .detail td { padding:4px 0; color:var(--muted); }
+  .detail td:last-child { color:var(--ink); text-align:right; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:11px; font-weight:600; }
+  .badge.live { background:#0f2f1c; color:#4ade80; }
+  .badge.todo { background:#33240f; color:#fbbf24; }
+  .badge.partial { background:#0f2333; color:#60a5fa; }
+  svg text { font-family:inherit; }
+  .node { cursor:pointer; }
+  .node:hover .ncard { stroke:#fff; }
+  .hint { position:absolute; bottom:14px; left:14px; color:var(--muted); font-size:12px; background:rgba(0,0,0,.4); padding:6px 10px; border-radius:6px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Content Cluster Map — photobytiff.com</h1>
+  <p>SERP-overlap hub &amp; spoke architecture · click any node for detail · lines show internal links (dashed = to build)</p>
+</header>
+<div class="wrap">
+  <div class="canvas"><svg id="map" width="100%" height="100%"></svg>
+    <div class="hint">Solid line = live internal link · Dashed = recommended link to add</div>
+  </div>
+  <aside>
+    <h2>Overview</h2>
+    <div class="metrics" id="metrics"></div>
+    <h2>Clusters</h2>
+    <div class="legend" id="legend"></div>
+    <div class="detail hidden" id="detail"></div>
+  </aside>
+</div>
+
+<script>
+const CLUSTER_DATA = {
+  "meta": {
+    "site": "photobytiff.com",
+    "generated": "2026-05-31",
+    "method": "SERP-overlap clustering (WebSearch top-10 organic)",
+    "note": "Volumes are relative H/M/L estimates, not measured. Validate in GSC.",
+    "totalPosts": 19,
+    "totalClusters": 4,
+    "totalLinks": 24,
+    "estimatedWords": 0
+  },
+  "pillar": {
+    "title": "Photographer in Spring Lake & Fayetteville, NC",
+    "keyword": "photographer Spring Lake / Fayetteville NC",
+    "volume": "H",
+    "template": "landing-page",
+    "url": "/services",
+    "status": "live"
+  },
+  "clusters": [
+    {
+      "name": "Service / Money Pages",
+      "color": "#3b82f6",
+      "posts": [
+        { "title": "Newborn Photography", "keyword": "newborn photographer Fayetteville NC", "volume": "M", "template": "landing-page", "url": "/services/newborn-photography", "status": "live" },
+        { "title": "Family Photography", "keyword": "family photographer Fayetteville NC", "volume": "M-H", "template": "landing-page", "url": "/services/family-photography", "status": "live" },
+        { "title": "Maternity Photography", "keyword": "maternity photographer Spring Lake NC", "volume": "L-M", "template": "landing-page", "url": "/services/maternity-photography", "status": "live" },
+        { "title": "Cake Smash Photography", "keyword": "cake smash photographer Fayetteville NC", "volume": "L-M", "template": "landing-page", "url": "/services/cake-smash-photography", "status": "live" },
+        { "title": "Milestone Photography", "keyword": "milestone photographer Spring Lake NC", "volume": "L", "template": "landing-page", "url": "/services/milestone-photography", "status": "live" }
+      ]
+    },
+    {
+      "name": "Fort Bragg / Military",
+      "color": "#22c55e",
+      "posts": [
+        { "title": "Fort Bragg Family Photographer", "keyword": "Fort Bragg family photographer", "volume": "L", "template": "landing-page", "url": "/fort-bragg-family-photographer", "status": "live" },
+        { "title": "Family Photography at Fort Bragg", "keyword": "military family photography Fort Bragg", "volume": "L", "template": "explainer", "url": "/blog/family-photography-fort-bragg-nc", "status": "live" }
+      ]
+    },
+    {
+      "name": "Prep / How-To",
+      "color": "#f97316",
+      "posts": [
+        { "title": "What to Wear to a Photoshoot", "keyword": "what to wear family photos", "volume": "H", "template": "how-to", "url": "/blog/what-to-wear-to-a-photoshoot", "status": "live" },
+        { "title": "How to Choose Coordinating Outfits", "keyword": "coordinate family photo outfits", "volume": "M", "template": "how-to", "url": "/blog/how-to-choose-coordinating-outfits-family-session", "status": "live" },
+        { "title": "How to Prepare for a Photoshoot", "keyword": "how to prepare for a photoshoot", "volume": "M", "template": "how-to", "url": "/blog/how-to-prepare-for-a-photoshoot", "status": "live" },
+        { "title": "What to Expect at Your Family Photo Session", "keyword": "what to expect family photo session", "volume": "M", "template": "explainer", "url": "/blog/what-to-expect-at-your-family-photo-session", "status": "live" },
+        { "title": "Newborn Photography Tips", "keyword": "when to book newborn photos", "volume": "M", "template": "how-to", "url": "/blog/newborn-photography-tips-spring-lake-nc", "status": "live" }
+      ]
+    },
+    {
+      "name": "Concept & Local",
+      "color": "#a855f7",
+      "posts": [
+        { "title": "What Is a Cake Smash Session", "keyword": "what is a cake smash session", "volume": "M", "template": "explainer", "url": "/blog/what-is-a-cake-smash-session", "status": "live" },
+        { "title": "What Is a Milestone Session", "keyword": "what is a milestone session", "volume": "L-M", "template": "explainer", "url": "/blog/what-is-a-milestone-session", "status": "live" },
+        { "title": "What Is a Baby-Led Newborn Session", "keyword": "baby-led newborn session", "volume": "L", "template": "explainer", "url": "/blog/what-is-a-baby-led-newborn-session", "status": "live" },
+        { "title": "What Is a Mini Session", "keyword": "what is a mini photo session", "volume": "L-M", "template": "explainer", "url": "/blog/what-is-a-mini-session", "status": "live" },
+        { "title": "What Is a Lifestyle Photographer", "keyword": "lifestyle photographer meaning", "volume": "M", "template": "explainer", "url": "/blog/what-is-a-lifestyle-photographer", "status": "live" },
+        { "title": "Best Photo Session Spots in Spring Lake", "keyword": "best photo session spots Spring Lake", "volume": "L-M", "template": "listicle", "url": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "status": "live" },
+        { "title": "Spring Lake Hidden Gems", "keyword": "Spring Lake NC family spots", "volume": "L", "template": "listicle", "url": "/blog/spring-lake-hidden-gems-local-spots-families-love", "status": "live" }
+      ]
+    }
+  ],
+  "links": [
+    { "from": "/services", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "newborn photography", "status": "live" },
+    { "from": "/services", "to": "/services/family-photography", "type": "mandatory", "anchor": "family photography", "status": "live" },
+    { "from": "/services", "to": "/services/maternity-photography", "type": "mandatory", "anchor": "maternity photography", "status": "live" },
+    { "from": "/services", "to": "/services/cake-smash-photography", "type": "mandatory", "anchor": "cake smash photography", "status": "live" },
+    { "from": "/services", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone photography", "status": "live" },
+    { "from": "/services", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg family photographer", "status": "todo" },
+    { "from": "/blog/newborn-photography-tips-spring-lake-nc", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "newborn photographer", "status": "todo" },
+    { "from": "/blog/what-is-a-baby-led-newborn-session", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "baby-led newborn session", "status": "partial" },
+    { "from": "/blog/maternity-photography-spring-lake-nc", "to": "/services/maternity-photography", "type": "mandatory", "anchor": "maternity photographer", "status": "todo" },
+    { "from": "/blog/what-is-a-cake-smash-session", "to": "/services/cake-smash-photography", "type": "mandatory", "anchor": "cake smash session", "status": "todo" },
+    { "from": "/blog/what-is-a-milestone-session", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone session", "status": "todo" },
+    { "from": "/blog/childrens-milestone-photography", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone photography", "status": "todo" },
+    { "from": "/blog/what-is-a-mini-session", "to": "/mini-sessions", "type": "mandatory", "anchor": "mini sessions", "status": "partial" },
+    { "from": "/blog/what-to-wear-to-a-photoshoot", "to": "/services/family-photography", "type": "recommended", "anchor": "family session", "status": "todo" },
+    { "from": "/blog/how-to-choose-coordinating-outfits-family-session", "to": "/services/family-photography", "type": "recommended", "anchor": "family photography", "status": "todo" },
+    { "from": "/blog/how-to-prepare-for-a-photoshoot", "to": "/services/family-photography", "type": "recommended", "anchor": "family photo session", "status": "partial" },
+    { "from": "/blog/what-to-expect-at-your-family-photo-session", "to": "/services/family-photography", "type": "recommended", "anchor": "family photo session", "status": "todo" },
+    { "from": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "to": "/services/family-photography", "type": "recommended", "anchor": "family sessions", "status": "todo" },
+    { "from": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg families", "status": "todo" },
+    { "from": "/blog/spring-lake-hidden-gems-local-spots-families-love", "to": "/services/family-photography", "type": "recommended", "anchor": "family photographer in Spring Lake", "status": "todo" },
+    { "from": "/blog/family-photography-fort-bragg-nc", "to": "/fort-bragg-family-photographer", "type": "mandatory", "anchor": "Fort Bragg family photographer", "status": "todo" },
+    { "from": "/fort-bragg-family-photographer", "to": "/services/family-photography", "type": "recommended", "anchor": "family photography", "status": "todo" },
+    { "from": "/services/family-photography", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg military families", "status": "todo" },
+    { "from": "/blog/what-is-a-lifestyle-photographer", "to": "/services", "type": "recommended", "anchor": "photography services", "status": "todo" }
+  ]
+}
+;
+
+const svg = document.getElementById('map');
+const NS = 'http://www.w3.org/2000/svg';
+function el(t, a){ const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); return e; }
+
+function layout(){
+  const W = svg.clientWidth || 900, H = svg.clientHeight || 700;
+  const cx = W/2, cy = H/2;
+  const nodes = {}; // url -> {x,y,...}
+  // pillar center
+  nodes[CLUSTER_DATA.pillar.url] = { x:cx, y:cy, ...CLUSTER_DATA.pillar, isPillar:true, color:'#e8eaed' };
+
+  const clusters = CLUSTER_DATA.clusters;
+  const ringR = Math.min(W,H)*0.36;
+  clusters.forEach((cl, ci) => {
+    const baseAngle = (ci / clusters.length) * Math.PI*2 - Math.PI/2;
+    const spread = Math.PI/ (clusters.length+0.5);
+    cl.posts.forEach((p, pi) => {
+      const t = cl.posts.length===1 ? 0 : (pi/(cl.posts.length-1) - 0.5);
+      const ang = baseAngle + t*spread;
+      const r = ringR + (pi%2)*46;
+      nodes[p.url] = { x:cx+Math.cos(ang)*r, y:cy+Math.sin(ang)*r, ...p, color:cl.color, cluster:cl.name };
+    });
+  });
+  return {nodes, W, H};
+}
+
+function render(){
+  svg.innerHTML='';
+  const {nodes} = layout();
+
+  // links
+  (CLUSTER_DATA.links||[]).forEach(lk => {
+    const a = nodes[lk.from], b = nodes[lk.to];
+    if(!a||!b) return;
+    const live = lk.status==='live';
+    svg.appendChild(el('line',{x1:a.x,y1:a.y,x2:b.x,y2:b.y,
+      stroke: live? '#3a4152':'#3a4152', 'stroke-width': live?1.6:1,
+      'stroke-dasharray': live? '0':'4 4', opacity: live?0.9:0.55}));
+  });
+
+  // nodes
+  Object.values(nodes).forEach(n => {
+    const g = el('g',{class:'node'});
+    const w = n.isPillar?150:132, h = n.isPillar?54:44;
+    g.appendChild(el('rect',{class:'ncard',x:n.x-w/2,y:n.y-h/2,width:w,height:h,rx:9,
+      fill: n.isPillar? '#242a36':'#1a1d24', stroke:n.color, 'stroke-width':n.isPillar?2.2:1.6}));
+    // color tab
+    g.appendChild(el('rect',{x:n.x-w/2,y:n.y-h/2,width:6,height:h,rx:3,fill:n.color}));
+    const title = el('text',{x:n.x-w/2+14,y:n.y-2,fill:'#e8eaed','font-size':n.isPillar?12:11,'font-weight':n.isPillar?700:600});
+    title.textContent = (n.title||'').length>22 ? n.title.slice(0,21)+'…' : n.title;
+    g.appendChild(title);
+    const sub = el('text',{x:n.x-w/2+14,y:n.y+13,fill:'#9aa0aa','font-size':9});
+    sub.textContent = (n.url||'').length>26 ? n.url.slice(0,25)+'…' : n.url;
+    g.appendChild(sub);
+    // status dot
+    const sc = n.status==='live'?'#4ade80':(n.status==='partial'?'#60a5fa':'#fbbf24');
+    g.appendChild(el('circle',{cx:n.x+w/2-12,cy:n.y-h/2+12,r:4,fill:sc}));
+    g.addEventListener('click',()=>showDetail(n));
+    svg.appendChild(g);
+  });
+}
+
+function showDetail(n){
+  const d = document.getElementById('detail');
+  d.classList.remove('hidden');
+  const inbound = (CLUSTER_DATA.links||[]).filter(l=>l.to===n.url).length;
+  const outbound = (CLUSTER_DATA.links||[]).filter(l=>l.from===n.url).length;
+  d.innerHTML = `<h3>${n.title}</h3><div class="kw">${n.keyword||''}</div>
+    <table>
+      <tr><td>URL</td><td>${n.url}</td></tr>
+      <tr><td>Cluster</td><td>${n.cluster||'Pillar'}</td></tr>
+      <tr><td>Intent / template</td><td>${n.template||'—'}</td></tr>
+      <tr><td>Rel. volume</td><td>${n.volume||'—'}</td></tr>
+      <tr><td>Status</td><td><span class="badge ${n.status}">${n.status}</span></td></tr>
+      <tr><td>Inbound links</td><td>${inbound}</td></tr>
+      <tr><td>Outbound links</td><td>${outbound}</td></tr>
+    </table>`;
+}
+
+function meta(){
+  const m = CLUSTER_DATA.meta||{};
+  const cards = [
+    ['Pages', m.totalPosts], ['Clusters', m.totalClusters],
+    ['Internal links', m.totalLinks],
+    ['Live links', (CLUSTER_DATA.links||[]).filter(l=>l.status==='live').length]
+  ];
+  document.getElementById('metrics').innerHTML = cards.map(c=>`<div class="metric"><div class="n">${c[1]??'—'}</div><div class="l">${c[0]}</div></div>`).join('');
+  document.getElementById('legend').innerHTML =
+    `<div><span class="dot" style="background:#e8eaed"></span> Pillar — /services</div>` +
+    (CLUSTER_DATA.clusters||[]).map(c=>`<div><span class="dot" style="background:${c.color}"></span> ${c.name} (${c.posts.length})</div>`).join('');
+}
+
+meta(); render();
+window.addEventListener('resize', render);
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "site": "photobytiff.com",
+    "generated": "2026-05-31",
+    "method": "SERP-overlap clustering (WebSearch top-10 organic)",
+    "note": "Volumes are relative H/M/L estimates, not measured. Validate in GSC.",
+    "totalPosts": 19,
+    "totalClusters": 4,
+    "totalLinks": 24,
+    "estimatedWords": 0
+  },
+  "pillar": {
+    "title": "Photographer in Spring Lake & Fayetteville, NC",
+    "keyword": "photographer Spring Lake / Fayetteville NC",
+    "volume": "H",
+    "template": "landing-page",
+    "url": "/services",
+    "status": "live"
+  },
+  "clusters": [
+    {
+      "name": "Service / Money Pages",
+      "color": "#3b82f6",
+      "posts": [
+        { "title": "Newborn Photography", "keyword": "newborn photographer Fayetteville NC", "volume": "M", "template": "landing-page", "url": "/services/newborn-photography", "status": "live" },
+        { "title": "Family Photography", "keyword": "family photographer Fayetteville NC", "volume": "M-H", "template": "landing-page", "url": "/services/family-photography", "status": "live" },
+        { "title": "Maternity Photography", "keyword": "maternity photographer Spring Lake NC", "volume": "L-M", "template": "landing-page", "url": "/services/maternity-photography", "status": "live" },
+        { "title": "Cake Smash Photography", "keyword": "cake smash photographer Fayetteville NC", "volume": "L-M", "template": "landing-page", "url": "/services/cake-smash-photography", "status": "live" },
+        { "title": "Milestone Photography", "keyword": "milestone photographer Spring Lake NC", "volume": "L", "template": "landing-page", "url": "/services/milestone-photography", "status": "live" }
+      ]
+    },
+    {
+      "name": "Fort Bragg / Military",
+      "color": "#22c55e",
+      "posts": [
+        { "title": "Fort Bragg Family Photographer", "keyword": "Fort Bragg family photographer", "volume": "L", "template": "landing-page", "url": "/fort-bragg-family-photographer", "status": "live" },
+        { "title": "Family Photography at Fort Bragg", "keyword": "military family photography Fort Bragg", "volume": "L", "template": "explainer", "url": "/blog/family-photography-fort-bragg-nc", "status": "live" }
+      ]
+    },
+    {
+      "name": "Prep / How-To",
+      "color": "#f97316",
+      "posts": [
+        { "title": "What to Wear to a Photoshoot", "keyword": "what to wear family photos", "volume": "H", "template": "how-to", "url": "/blog/what-to-wear-to-a-photoshoot", "status": "live" },
+        { "title": "How to Choose Coordinating Outfits", "keyword": "coordinate family photo outfits", "volume": "M", "template": "how-to", "url": "/blog/how-to-choose-coordinating-outfits-family-session", "status": "live" },
+        { "title": "How to Prepare for a Photoshoot", "keyword": "how to prepare for a photoshoot", "volume": "M", "template": "how-to", "url": "/blog/how-to-prepare-for-a-photoshoot", "status": "live" },
+        { "title": "What to Expect at Your Family Photo Session", "keyword": "what to expect family photo session", "volume": "M", "template": "explainer", "url": "/blog/what-to-expect-at-your-family-photo-session", "status": "live" },
+        { "title": "Newborn Photography Tips", "keyword": "when to book newborn photos", "volume": "M", "template": "how-to", "url": "/blog/newborn-photography-tips-spring-lake-nc", "status": "live" }
+      ]
+    },
+    {
+      "name": "Concept & Local",
+      "color": "#a855f7",
+      "posts": [
+        { "title": "What Is a Cake Smash Session", "keyword": "what is a cake smash session", "volume": "M", "template": "explainer", "url": "/blog/what-is-a-cake-smash-session", "status": "live" },
+        { "title": "What Is a Milestone Session", "keyword": "what is a milestone session", "volume": "L-M", "template": "explainer", "url": "/blog/what-is-a-milestone-session", "status": "live" },
+        { "title": "What Is a Baby-Led Newborn Session", "keyword": "baby-led newborn session", "volume": "L", "template": "explainer", "url": "/blog/what-is-a-baby-led-newborn-session", "status": "live" },
+        { "title": "What Is a Mini Session", "keyword": "what is a mini photo session", "volume": "L-M", "template": "explainer", "url": "/blog/what-is-a-mini-session", "status": "live" },
+        { "title": "What Is a Lifestyle Photographer", "keyword": "lifestyle photographer meaning", "volume": "M", "template": "explainer", "url": "/blog/what-is-a-lifestyle-photographer", "status": "live" },
+        { "title": "Best Photo Session Spots in Spring Lake", "keyword": "best photo session spots Spring Lake", "volume": "L-M", "template": "listicle", "url": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "status": "live" },
+        { "title": "Spring Lake Hidden Gems", "keyword": "Spring Lake NC family spots", "volume": "L", "template": "listicle", "url": "/blog/spring-lake-hidden-gems-local-spots-families-love", "status": "live" }
+      ]
+    }
+  ],
+  "links": [
+    { "from": "/services", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "newborn photography", "status": "live" },
+    { "from": "/services", "to": "/services/family-photography", "type": "mandatory", "anchor": "family photography", "status": "live" },
+    { "from": "/services", "to": "/services/maternity-photography", "type": "mandatory", "anchor": "maternity photography", "status": "live" },
+    { "from": "/services", "to": "/services/cake-smash-photography", "type": "mandatory", "anchor": "cake smash photography", "status": "live" },
+    { "from": "/services", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone photography", "status": "live" },
+    { "from": "/services", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg family photographer", "status": "todo" },
+    { "from": "/blog/newborn-photography-tips-spring-lake-nc", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "newborn photographer", "status": "todo" },
+    { "from": "/blog/what-is-a-baby-led-newborn-session", "to": "/services/newborn-photography", "type": "mandatory", "anchor": "baby-led newborn session", "status": "partial" },
+    { "from": "/blog/maternity-photography-spring-lake-nc", "to": "/services/maternity-photography", "type": "mandatory", "anchor": "maternity photographer", "status": "todo" },
+    { "from": "/blog/what-is-a-cake-smash-session", "to": "/services/cake-smash-photography", "type": "mandatory", "anchor": "cake smash session", "status": "todo" },
+    { "from": "/blog/what-is-a-milestone-session", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone session", "status": "todo" },
+    { "from": "/blog/childrens-milestone-photography", "to": "/services/milestone-photography", "type": "mandatory", "anchor": "milestone photography", "status": "todo" },
+    { "from": "/blog/what-is-a-mini-session", "to": "/mini-sessions", "type": "mandatory", "anchor": "mini sessions", "status": "partial" },
+    { "from": "/blog/what-to-wear-to-a-photoshoot", "to": "/services/family-photography", "type": "recommended", "anchor": "family session", "status": "todo" },
+    { "from": "/blog/how-to-choose-coordinating-outfits-family-session", "to": "/services/family-photography", "type": "recommended", "anchor": "family photography", "status": "todo" },
+    { "from": "/blog/how-to-prepare-for-a-photoshoot", "to": "/services/family-photography", "type": "recommended", "anchor": "family photo session", "status": "partial" },
+    { "from": "/blog/what-to-expect-at-your-family-photo-session", "to": "/services/family-photography", "type": "recommended", "anchor": "family photo session", "status": "todo" },
+    { "from": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "to": "/services/family-photography", "type": "recommended", "anchor": "family sessions", "status": "todo" },
+    { "from": "/blog/best-photo-session-locations-spring-lake-fort-bragg", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg families", "status": "todo" },
+    { "from": "/blog/spring-lake-hidden-gems-local-spots-families-love", "to": "/services/family-photography", "type": "recommended", "anchor": "family photographer in Spring Lake", "status": "todo" },
+    { "from": "/blog/family-photography-fort-bragg-nc", "to": "/fort-bragg-family-photographer", "type": "mandatory", "anchor": "Fort Bragg family photographer", "status": "todo" },
+    { "from": "/fort-bragg-family-photographer", "to": "/services/family-photography", "type": "recommended", "anchor": "family photography", "status": "todo" },
+    { "from": "/services/family-photography", "to": "/fort-bragg-family-photographer", "type": "recommended", "anchor": "Fort Bragg military families", "status": "todo" },
+    { "from": "/blog/what-is-a-lifestyle-photographer", "to": "/services", "type": "recommended", "anchor": "photography services", "status": "todo" }
+  ]
+}

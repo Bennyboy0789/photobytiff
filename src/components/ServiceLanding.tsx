@@ -129,6 +129,28 @@ export default function ServiceLanding({ page }: { page: ServicePage }) {
         </section>
       </ScrollReveal>
 
+      {/* Related reading */}
+      {page.relatedPosts && page.relatedPosts.length > 0 && (
+        <ScrollReveal>
+          <section className="pb-4 px-6 max-w-3xl mx-auto">
+            <div className="bg-brand-light rounded-sm p-8">
+              <h2 className="text-sm font-bold uppercase tracking-widest text-brand-dark mb-4">
+                Related reading
+              </h2>
+              <ul className="space-y-2">
+                {page.relatedPosts.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-brand-gray hover:text-brand-pink transition-colors">
+                      {link.label} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        </ScrollReveal>
+      )}
+
       {/* FAQ */}
       <ScrollReveal>
         <section className="py-16 px-6 max-w-3xl mx-auto">
