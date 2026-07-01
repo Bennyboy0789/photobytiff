@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     template: '%s | Lifestyle Photography by Tiffany',
   },
   description:
-    'Tiffany Jarosz is a lifestyle photographer in Spring Lake, NC specializing in newborn, family, maternity, milestone, and cake smash photography. Serving Fayetteville, Fort Liberty & surrounding areas.',
+    'Tiffany Jarosz is a lifestyle photographer in Spring Lake, NC specializing in newborn, family, maternity, milestone, and cake smash photography. Serving Fayetteville, Fort Bragg & surrounding areas.',
   keywords: [
     'lifestyle photographer Spring Lake NC',
     'newborn photographer Fayetteville NC',
-    'family photographer Fort Liberty NC',
+    'family photographer Fort Bragg NC',
     'maternity photographer North Carolina',
     'cake smash photographer Spring Lake',
     'milestone photography NC',
@@ -107,7 +107,7 @@ export default function RootLayout({
         areaServed: [
           { '@type': 'City', name: 'Spring Lake', '@id': 'https://www.wikidata.org/wiki/Q1166098' },
           { '@type': 'City', name: 'Fayetteville' },
-          { '@type': 'City', name: 'Fort Liberty' },
+          { '@type': 'City', name: 'Fort Bragg' },
           { '@type': 'City', name: 'Sanford' },
           { '@type': 'State', name: 'North Carolina' },
         ],

@@ -7,6 +7,15 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const serviceLinks = [
+  { href: '/services/newborn-photography', label: 'Newborn' },
+  { href: '/services/maternity-photography', label: 'Maternity' },
+  { href: '/services/family-photography', label: 'Family' },
+  { href: '/services/cake-smash-photography', label: 'Cake Smash' },
+  { href: '/services/milestone-photography', label: 'Milestone' },
+  { href: '/fort-bragg-family-photographer', label: 'Fort Bragg Families' },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-gray-200">
@@ -36,7 +45,7 @@ export default function Footer() {
           </div>
 
           {/* Center: Nav */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 md:max-w-xs">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -47,6 +56,22 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
+
+          {/* Sessions */}
+          <div>
+            <h4 className="text-[13px] font-bold uppercase tracking-wider mb-3">Sessions</h4>
+            <div className="flex flex-col gap-2">
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[14px] text-brand-gray hover:text-brand-dark transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Right: Location + Copyright */}
           <div className="text-right">

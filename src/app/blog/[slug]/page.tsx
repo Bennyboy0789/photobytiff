@@ -30,6 +30,8 @@ export async function generateMetadata({
   };
 }
 
+const SITE_URL = 'https://photobytiff.com';
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -39,8 +41,43 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const publishedISO = new Date(post.date).toISOString();
+  const bodyText = (post.content ?? post.excerpt).replace(/<[^>]+>/g, ' ');
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${SITE_URL}/blog/${post.slug}/#article`,
+        headline: post.title,
+        description: post.excerpt.slice(0, 200),
+        image: `${SITE_URL}${post.image}`,
+        datePublished: publishedISO,
+        dateModified: publishedISO,
+        articleSection: post.category,
+        wordCount: bodyText.trim().split(/\s+/).length,
+        author: { '@id': `${SITE_URL}/#person` },
+        publisher: { '@id': `${SITE_URL}/#business` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative h-[60vh] flex items-end overflow-hidden">
         <Image

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { blogPosts } from './blog/posts';
+import { servicePages } from './services/service-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://photobytiff.com';
@@ -13,7 +14,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/mini-sessions`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.6 },
+    { url: `${base}/fort-bragg-family-photographer`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
   ];
+
+  const serviceRoutes: MetadataRoute.Sitemap = Object.values(servicePages).map((page) => ({
+    url: page.canonical,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.9,
+  }));
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
@@ -22,5 +31,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
 }

@@ -136,7 +136,7 @@ export default function Home() {
             <div className="relative z-10">
               <p className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3">§ 02 — About</p>
               <div className="h-px w-10 bg-brand-dark/30 mb-6" />
-              <p className="text-[clamp(1.4rem,3vw,2.6rem)] leading-[1.15] tracking-[-0.3px] max-w-lg">
+              <h2 className="text-[clamp(1.4rem,3vw,2.6rem)] leading-[1.15] tracking-[-0.3px] max-w-lg font-normal">
                 <em className="font-serif italic">Capturing</em>{' '}
                 <strong>life&rsquo;s most</strong>{' '}
                 <em className="font-serif italic">precious moments</em>
@@ -144,7 +144,7 @@ export default function Home() {
                 <br />
                 <strong>one frame</strong>{' '}
                 <em className="font-serif italic">at a time.</em>
-              </p>
+              </h2>
               <div className="h-px w-full max-w-sm bg-brand-dark/10 mt-6 mb-5" />
               <p className="text-brand-gray text-sm leading-relaxed max-w-sm">
                 Based in Spring Lake, NC, Lifestyle Photography by Tiffany serves families throughout the surrounding area. I specialize in family, children, and milestone photography, capturing authentic connections and the little moments that make your story unique.
@@ -245,7 +245,7 @@ export default function Home() {
           </span>
 
           <div className="max-w-3xl mx-auto w-full relative z-10">
-            <p className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3">§ 04 — Kind Words</p>
+            <h2 className="text-[9px] tracking-[0.35em] uppercase text-brand-gray mb-3 font-normal">§ 04 — Kind Words</h2>
             <div className="h-px w-10 bg-brand-dark/30 mb-8" />
 
             <motion.div

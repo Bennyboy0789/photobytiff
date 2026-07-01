@@ -4,7 +4,7 @@ import PortfolioClient from './PortfolioClient';
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'Browse Tiffany Jarosz\'s photography portfolio — newborn, family, maternity, children, and cake smash sessions in Spring Lake, Fayetteville & Fort Liberty, NC.',
+    'Browse Tiffany Jarosz\'s photography portfolio — newborn, family, maternity, children, and cake smash sessions in Spring Lake, Fayetteville & Fort Bragg, NC.',
   alternates: { canonical: 'https://photobytiff.com/portfolio' },
   openGraph: {
     title: 'Photography Portfolio | Lifestyle Photography by Tiffany',
