@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8">
           {/* Left: Follow */}
           <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider mb-3">Follow</h4>
+            <h2 className="text-[13px] font-bold uppercase tracking-wider mb-3">Follow</h2>
             <div className="flex gap-4">
               <a
                 href="https://instagram.com/photo.by.tiff"
@@ -59,7 +59,7 @@ export default function Footer() {
 
           {/* Sessions */}
           <div>
-            <h4 className="text-[13px] font-bold uppercase tracking-wider mb-3">Sessions</h4>
+            <h2 className="text-[13px] font-bold uppercase tracking-wider mb-3">Sessions</h2>
             <div className="flex flex-col gap-2">
               {serviceLinks.map((link) => (
                 <Link
