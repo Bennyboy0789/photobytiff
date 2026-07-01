@@ -61,6 +61,11 @@ export default function Home() {
 
   return (
     <PageTransition>
+      {/* Single canonical H1 for the page (HorizontalScroll duplicates its panels
+          across mobile/desktop, so any H1 inside a panel would render twice). */}
+      <h1 className="sr-only">
+        Lifestyle Photography by Tiffany — Family, Newborn &amp; Maternity Photographer in Spring Lake, NC
+      </h1>
       <HorizontalScroll>
 
         {/* ─── Panel 01: HERO ─── */}
@@ -87,9 +92,9 @@ export default function Home() {
           <div className="absolute bottom-12 left-10 md:left-16 z-10 text-white">
             <p className="text-[9px] tracking-[0.35em] uppercase text-white/40 mb-4">§ 01 — Portfolio</p>
             <div className="h-px w-12 bg-white/30 mb-4" />
-            <h1 className="font-serif italic text-[clamp(2.2rem,6vw,5rem)] leading-[0.9] tracking-[-1px]">
+            <p className="font-serif italic text-[clamp(2.2rem,6vw,5rem)] leading-[0.9] tracking-[-1px]">
               Lifestyle Photography
-            </h1>
+            </p>
             <p className="font-sans font-bold text-[clamp(1.4rem,3.5vw,3rem)] leading-none tracking-[-2px] mt-1 text-white/90">
               BY TIFFANY
             </p>
