@@ -25,6 +25,8 @@ export interface ServicePage {
   gallery: { src: string; alt: string; aspectClass: string }[];
   // Related internal links (blog posts / other pages) for the cluster link graph.
   relatedPosts?: { href: string; label: string }[];
+  // A real client testimonial displayed on the page (also emitted as Review schema).
+  testimonial?: { author: string; quote: string };
   faqs: ServiceFAQ[];
   // schema.org Service fields
   serviceName: string;
@@ -87,6 +89,10 @@ export const servicePages: Record<string, ServicePage> = {
       { href: '/blog/what-is-a-baby-led-newborn-session', label: 'What is a baby-led newborn session?' },
       { href: '/blog/newborn-photography-tips-spring-lake-nc', label: 'Newborn photography tips & when to book' },
     ],
+    testimonial: {
+      author: 'Marissa S.',
+      quote: 'She was super sweet and kind! We had a blast! 10/10 would go to her for pictures again! They turned out amazing!!',
+    },
     faqs: [
       { q: 'When should I book my newborn session?', a: 'Reach out during your second trimester so we can reserve a window around your due date. The ideal time to photograph is within the first two weeks after birth, though I happily photograph older babies too.' },
       { q: 'Do you come to my home?', a: 'Yes — newborn sessions are held in your home so you and baby stay comfortable. I bring wraps and blankets and find the best natural light in your space.' },
@@ -151,6 +157,10 @@ export const servicePages: Record<string, ServicePage> = {
       { href: '/blog/maternity-photography-spring-lake-nc', label: 'Maternity photography: what to expect & when to book' },
       { href: '/blog/what-is-a-baby-led-newborn-session', label: 'Planning ahead? Baby-led newborn sessions' },
     ],
+    testimonial: {
+      author: 'Ashley K.',
+      quote: 'She was so helpful and friendly! And my son absolutely enjoyed his time during the shoot! Will definitely book again!',
+    },
     faqs: [
       { q: 'When is the best time for maternity photos?', a: 'Between 28 and 34 weeks for most pregnancies, or 24 to 28 weeks if you are expecting twins. Book by your second trimester to secure a date.' },
       { q: 'What should I wear?', a: 'Flowing dresses in soft, solid tones photograph beautifully and highlight your bump. You are welcome to bring one outfit change, and I am happy to help you plan.' },
@@ -215,6 +225,10 @@ export const servicePages: Record<string, ServicePage> = {
       { href: '/blog/what-to-wear-to-a-photoshoot', label: 'What to wear to your family session' },
       { href: '/blog/best-photo-session-locations-spring-lake-fort-bragg', label: 'Best photo session spots in Spring Lake' },
     ],
+    testimonial: {
+      author: 'Amanda S.',
+      quote: 'Great experience! Tiffany was very patient with my children — she was able to coax the best pictures out of my sons and made it a fun experience for us all!',
+    },
     faqs: [
       { q: 'How long is a family session?', a: 'Family sessions last about an hour, held during golden hour for the softest light, and include up to six people.' },
       { q: 'How much is a family session?', a: 'Family sessions are $400 and include 25 high-resolution edited images in an online gallery, for up to six people.' },
@@ -272,6 +286,10 @@ export const servicePages: Record<string, ServicePage> = {
       { href: '/blog/what-is-a-cake-smash-session', label: 'What is a cake smash session?' },
       { href: '/blog/what-is-a-milestone-session', label: 'First birthday & milestone sessions' },
     ],
+    testimonial: {
+      author: 'Ameria J.',
+      quote: "Tiffany did my daughter's 1st Birthday pictures and they came out absolutely amazing!! You can tell she's passionate about photography through her work!",
+    },
     faqs: [
       { q: 'Is the cake included?', a: 'Yes. The cake is included with every cake smash session, so there is nothing for you to coordinate. We plan colors and theme together beforehand.' },
       { q: 'How much is a cake smash session?', a: 'Cake smash sessions are $250 and include up to an hour of shooting, the cake, and 15 high-resolution edited images in an online gallery.' },
@@ -329,6 +347,10 @@ export const servicePages: Record<string, ServicePage> = {
       { href: '/blog/what-is-a-milestone-session', label: 'What is a milestone session?' },
       { href: '/blog/childrens-milestone-photography', label: "Children's milestone photography guide" },
     ],
+    testimonial: {
+      author: 'Gregg K.',
+      quote: 'Tiffany met me at a location convenient to me. She had several suggestions for poses and spots. She quickly edited the photos and got them back to me. Recommended!',
+    },
     faqs: [
       { q: 'What counts as a milestone session?', a: 'Common milestones include the sitter session (six to eight months), first birthdays, and other big moments like first haircuts or starting school. Any stage of your child\'s growth is worth capturing.' },
       { q: 'How much is a milestone session?', a: 'Milestone sessions are $200 and include a one-hour session with 15 high-resolution edited images in an online gallery.' },
@@ -395,6 +417,10 @@ export const fortBraggPage: ServicePage = {
     { href: '/services/family-photography', label: 'Family Photography sessions' },
     { href: '/blog/family-photography-fort-bragg-nc', label: 'Family photography at Fort Bragg: the full guide' },
   ],
+  testimonial: {
+    author: 'Gregg K.',
+    quote: 'Tiffany met me at a location convenient to me. She had several suggestions for poses and spots. She quickly edited the photos and got them back to me. Recommended!',
+  },
   faqs: [
     { q: 'Do you photograph homecomings?', a: 'Yes. Homecoming sessions are documentary-style — I meet you at the airfield, company area, or your home and capture the reunion as it unfolds. Reach out as soon as you have a tentative date since flights shift often.' },
     { q: 'When should military families book?', a: 'As soon as you know your window. If your spouse is home for a dwell period, book early so we have flexibility to reschedule around weather or short-notice changes.' },

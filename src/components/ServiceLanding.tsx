@@ -46,6 +46,17 @@ export default function ServiceLanding({ page }: { page: ServicePage }) {
           { '@type': 'ListItem', position: 3, name: page.serviceName, item: page.canonical },
         ],
       },
+      ...(page.testimonial
+        ? [
+            {
+              '@type': 'Review',
+              itemReviewed: { '@id': `${SITE_URL}/#business` },
+              reviewBody: page.testimonial.quote,
+              author: { '@type': 'Person', name: page.testimonial.author },
+              reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
+            },
+          ]
+        : []),
     ],
   };
 
@@ -128,6 +139,21 @@ export default function ServiceLanding({ page }: { page: ServicePage }) {
           </div>
         </section>
       </ScrollReveal>
+
+      {/* Testimonial */}
+      {page.testimonial && (
+        <ScrollReveal>
+          <section className="py-12 px-6 max-w-2xl mx-auto text-center">
+            <span className="font-serif text-6xl text-brand-pink/30 leading-none select-none">&ldquo;</span>
+            <blockquote className="font-serif italic text-[clamp(1.2rem,2.5vw,1.6rem)] leading-relaxed text-brand-dark -mt-4">
+              {page.testimonial.quote}
+            </blockquote>
+            <p className="mt-4 text-[11px] tracking-[0.25em] uppercase text-brand-gray">
+              — {page.testimonial.author}, Google Review
+            </p>
+          </section>
+        </ScrollReveal>
+      )}
 
       {/* Related reading */}
       {page.relatedPosts && page.relatedPosts.length > 0 && (
