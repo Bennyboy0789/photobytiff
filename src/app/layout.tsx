@@ -90,7 +90,8 @@ export default function RootLayout({
         description:
           'Lifestyle photographer in Spring Lake, NC specializing in newborn, family, maternity, milestone, and cake smash photography.',
         url: siteUrl,
-        email: 'hello@photobytiff.com',
+        telephone: '+1-910-779-8088',
+        email: 'tiffany@photobytiff.com',
         image: `${siteUrl}/images/real/children-lifestyle-boho-tent-session-spring-lake-nc.jpg`,
         logo: `${siteUrl}/images/logo.png`,
         address: {
@@ -101,8 +102,8 @@ export default function RootLayout({
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 35.1768,
-          longitude: -78.9716,
+          latitude: 35.2501,
+          longitude: -78.9435,
         },
         areaServed: [
           { '@type': 'City', name: 'Spring Lake', '@id': 'https://www.wikidata.org/wiki/Q1166098' },
@@ -121,11 +122,12 @@ export default function RootLayout({
           '@type': 'OfferCatalog',
           name: 'Photography Services',
           itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newborn Photography', description: 'Baby-led newborn session up to 1 hour' }, price: '300', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Themed Mini Sessions', description: '15-20 minute themed seasonal sessions' }, price: '99', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Milestone Photography', description: 'Milestone session, 1 hour' }, price: '200', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cake Smash Photography', description: 'Cake smash session with cake included' }, price: '250', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Maternity Photography', description: 'Maternity lifestyle session' }, price: '300', priceCurrency: 'USD' },
+            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Newborn Photography', description: 'Baby-led newborn session up to 1 hour' }, price: '350', priceCurrency: 'USD' },
             { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Family Photography', description: 'Family lifestyle session up to 6 people' }, price: '400', priceCurrency: 'USD' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Maternity Photography', description: 'Maternity lifestyle session' }, price: '250', priceCurrency: 'USD' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cake Smash Photography', description: 'Cake smash session with cake included' }, price: '350', priceCurrency: 'USD' },
-            { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mini Sessions', description: '15-20 minute themed seasonal sessions' }, price: '99', priceCurrency: 'USD' },
           ],
         },
       },
