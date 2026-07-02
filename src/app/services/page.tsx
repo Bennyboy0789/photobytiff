@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
-  title: 'Services & Pricing',
+  title: 'Services & Pricing | Spring Lake, NC',
   description:
     'Photography packages starting at $99. Newborn ($350), Maternity ($300), Family ($400), Cake Smash ($350), and Mini Sessions. Spring Lake, NC.',
   alternates: { canonical: 'https://photobytiff.com/services' },

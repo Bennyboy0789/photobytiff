@@ -37,9 +37,9 @@ export interface ServicePage {
 export const servicePages: Record<string, ServicePage> = {
   'newborn-photography': {
     slug: 'newborn-photography',
-    metaTitle: 'Newborn Photographer in Spring Lake & Fayetteville, NC',
+    metaTitle: 'Newborn Photographer | Spring Lake, NC',
     metaDescription:
-      'Gentle, baby-led newborn photography in Spring Lake, NC, serving Fayetteville, Fort Bragg & surrounding areas. In-home sessions from $350. Book with Tiffany Jarosz.',
+      'Gentle, baby-led newborn photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. In-home sessions from $350. Book with Tiffany Jarosz.',
     canonical: 'https://photobytiff.com/services/newborn-photography',
     heroImage: '/images/real/family-lifestyle-session-outdoor.jpg',
     heroAlt: 'Newborn photography session in Spring Lake, NC',
@@ -106,9 +106,9 @@ export const servicePages: Record<string, ServicePage> = {
 
   'maternity-photography': {
     slug: 'maternity-photography',
-    metaTitle: 'Maternity Photographer in Spring Lake & Fayetteville, NC',
+    metaTitle: 'Maternity Photographer | Spring Lake, NC',
     metaDescription:
-      'Relaxed, natural maternity photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Golden-hour sessions from $300. Book your bump session with Tiffany Jarosz.',
+      'Relaxed, natural maternity photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Golden-hour bump sessions from $300 with Tiffany Jarosz.',
     canonical: 'https://photobytiff.com/services/maternity-photography',
     heroImage: '/images/real/maternity-photographer-green-dress-ultrasound-spring-lake-nc.jpg',
     heroAlt: 'Maternity photography session in Spring Lake, NC',
@@ -174,9 +174,9 @@ export const servicePages: Record<string, ServicePage> = {
 
   'family-photography': {
     slug: 'family-photography',
-    metaTitle: 'Family Photographer in Spring Lake, Fayetteville & Fort Bragg, NC',
+    metaTitle: 'Family Photographer | Spring Lake, NC',
     metaDescription:
-      'Natural, lifestyle family photography in Spring Lake, NC, serving Fayetteville, Fort Bragg & surrounding areas. Golden-hour sessions from $400. Book with Tiffany Jarosz.',
+      'Natural, lifestyle family photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Golden-hour sessions from $400 with Tiffany Jarosz.',
     canonical: 'https://photobytiff.com/services/family-photography',
     heroImage: '/images/real/family-outdoor-nature-session.jpg',
     heroAlt: 'Family photography session in Spring Lake, NC',
@@ -242,9 +242,9 @@ export const servicePages: Record<string, ServicePage> = {
 
   'cake-smash-photography': {
     slug: 'cake-smash-photography',
-    metaTitle: 'Cake Smash Photographer in Spring Lake & Fayetteville, NC',
+    metaTitle: 'Cake Smash Photographer | Spring Lake, NC',
     metaDescription:
-      'Joyful first-birthday cake smash photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Cake included, sessions from $250. Book with Tiffany Jarosz.',
+      'Joyful first-birthday cake smash photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Cake included, sessions from $250.',
     canonical: 'https://photobytiff.com/services/cake-smash-photography',
     heroImage: '/images/real/cake-smash-first-birthday-outdoor-spring-lake-nc.jpg',
     heroAlt: 'First birthday cake smash session in Spring Lake, NC',
@@ -303,7 +303,7 @@ export const servicePages: Record<string, ServicePage> = {
 
   'milestone-photography': {
     slug: 'milestone-photography',
-    metaTitle: 'Milestone & Children\'s Photographer in Spring Lake, NC',
+    metaTitle: 'Milestone Photographer | Spring Lake, NC',
     metaDescription:
       'Milestone and children\'s photography in Spring Lake, NC, serving Fayetteville & Fort Bragg. Sitter sessions, first birthdays & more from $200. Book with Tiffany Jarosz.',
     canonical: 'https://photobytiff.com/services/milestone-photography',
@@ -366,7 +366,7 @@ export const servicePages: Record<string, ServicePage> = {
 // Top-level location landing page (not under /services)
 export const fortBraggPage: ServicePage = {
   slug: 'fort-bragg-family-photographer',
-  metaTitle: 'Fort Bragg Family Photographer | Military Family Sessions',
+  metaTitle: 'Fort Bragg Family Photographer',
   metaDescription:
     'Family photographer for Fort Bragg military families in Spring Lake, NC. Homecoming, pre-deployment, PCS & milestone sessions. Book with Tiffany Jarosz.',
   canonical: 'https://photobytiff.com/fort-bragg-family-photographer',

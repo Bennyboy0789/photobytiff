@@ -17,11 +17,11 @@ const siteUrl = 'https://photobytiff.com';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Lifestyle Photography by Tiffany | Lifestyle Photographer in Spring Lake, NC',
-    template: '%s | Lifestyle Photography by Tiffany',
+    default: 'Family & Newborn Photographer | Spring Lake, NC',
+    template: '%s | Photo by Tiff',
   },
   description:
-    'Tiffany Jarosz is a lifestyle photographer in Spring Lake, NC specializing in newborn, family, maternity, milestone, and cake smash photography. Serving Fayetteville, Fort Bragg & surrounding areas.',
+    'Family, newborn, maternity & cake smash photographer in Spring Lake, NC. Serving Fayetteville & Fort Bragg. Natural, baby-led sessions from $99.',
   keywords: [
     'lifestyle photographer Spring Lake NC',
     'newborn photographer Fayetteville NC',

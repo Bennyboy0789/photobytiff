@@ -80,9 +80,20 @@ export default function ServiceLanding({ page }: { page: ServicePage }) {
         </div>
       </section>
 
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="px-6 max-w-3xl mx-auto pt-6">
+        <ol className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] uppercase text-brand-gray">
+          <li><Link href="/" className="hover:text-brand-dark transition-colors">Home</Link></li>
+          <li aria-hidden="true">/</li>
+          <li><Link href="/services" className="hover:text-brand-dark transition-colors">Services</Link></li>
+          <li aria-hidden="true">/</li>
+          <li className="text-brand-dark">{page.serviceName}</li>
+        </ol>
+      </nav>
+
       {/* Intro + body */}
       <ScrollReveal>
-        <section className="py-20 px-6 max-w-3xl mx-auto">
+        <section className="pt-8 pb-20 px-6 max-w-3xl mx-auto">
           <p className="text-brand-gray leading-loose text-[18px] mb-12">{page.intro}</p>
 
           {page.sections.map((section) => (

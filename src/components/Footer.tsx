@@ -73,11 +73,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right: Location + Copyright */}
-          <div className="text-right">
-            <p className="text-[15px] text-brand-gray">Spring Lake, NC</p>
+          {/* Right: Contact + Copyright */}
+          <div className="md:text-right">
+            <a
+              href="tel:+19107798088"
+              className="text-[15px] text-brand-gray hover:text-brand-dark transition-colors block"
+            >
+              (910) 779-8088
+            </a>
+            <p className="text-[15px] text-brand-gray mt-1">Spring Lake, NC</p>
             <p className="text-[13px] text-brand-gray mt-1">
-              &copy; 2026 Tiffany Jarosz Photography
+              &copy; {new Date().getFullYear()} Tiffany Jarosz Photography
             </p>
           </div>
         </div>
