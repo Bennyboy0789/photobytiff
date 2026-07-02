@@ -12,7 +12,7 @@ Hi Tiffany! This is your step-by-step guide to getting your website and business
 Getting found on Google comes down to three things for a photographer like you:
 
 1. **Your Google Business Profile** (that map listing with your reviews) — ✅ you already have this.
-2. **Reviews** — the more recent Google reviews you have, the higher you show up. **This is the most important ongoing thing you can do.**
+2. **Reviews** — the more recent Google reviews you have, the higher you show up. You already have a solid base (8+), which is great — the goal now is simply to **keep a steady trickle coming** so it never goes stale. **This is the most important ongoing thing you can do.**
 3. **Being listed & mentioned around the web** — on directories and local sites. This tells Google you're a real, established local business. That's what this folder helps you do.
 
 You do **not** need to pay anyone for "backlink services." Those are scams that can actually hurt you. Everything here is free (or nearly free) and legit.
@@ -105,8 +105,8 @@ Do 3–5 per sitting. Don't burn out trying to do them all at once.
 | Timeframe | Goal |
 |---|---|
 | End of Week 1 | Review link set up + Tier 1 directories done + GBP polished |
-| End of Month 1 | ~13 directory listings (Tiers 1–2), 5+ new Google reviews, 2–3 venue/vendor emails sent |
-| End of Month 3 | 20+ listings, 15+ Google reviews, a few local partner links, guest post pitched |
+| End of Month 1 | ~13 directory listings (Tiers 1–2), a few new Google reviews (building on your current 8+), 2–3 venue/vendor emails sent |
+| End of Month 3 | 20+ listings, 15+ total Google reviews, a few local partner links, guest post pitched |
 | Ongoing | A steady trickle of new reviews (aim for a few every month) — this is what keeps you climbing |
 
 ---
